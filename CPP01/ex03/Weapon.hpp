@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 00:51:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/04/18 01:11:42 by antuel           ###   ########.fr       */
+/*   Updated: 2026/04/18 01:14:41 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <iostream>
 # include <string>
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+# include "HumanA.hpp"
+# include "HumanB.hpp"
 
 class Weapon
 {
