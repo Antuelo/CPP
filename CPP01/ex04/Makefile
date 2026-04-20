@@ -1,9 +1,9 @@
-NAME = Unnecessary_violence
+NAME = Sed_is_for_losers
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS = main.cpp Replace.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
