@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 19:11:17 by antuel            #+#    #+#             */
-/*   Updated: 2026/04/21 11:26:03 by anoviedo         ###   ########.fr       */
+/*   Updated: 2026/04/21 15:14:20 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ std::string Contact::getNickname() const
 }
 
 Contact::Contact() {}
+
 void	Contact::setContact(const std::string& first,
 							const std::string& last,
 							const std::string& nick,

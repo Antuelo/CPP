@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 10:51:22 by antuel            #+#    #+#             */
-/*   Updated: 2026/04/21 13:47:28 by anoviedo         ###   ########.fr       */
+/*   Updated: 2026/04/21 15:26:10 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,12 @@ void PhoneBook::addContact()
 	contacts[index].setContact(first, last, nick, phone, secret);
 
 	index = (index + 1) % 8;
+	/*
+	if (index == 7)
+		index = 0;
+	else
+		index++;
+	*/
 
 	if (total_contacts < 8)
 		total_contacts++;

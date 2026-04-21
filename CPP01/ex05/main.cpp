@@ -5,32 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/21 14:06:23 by anoviedo          #+#    #+#             */
-/*   Updated: 2026/04/21 14:22:46 by anoviedo         ###   ########.fr       */
+/*   Created: 2026/04/19 15:40:27 by antuel            #+#    #+#             */
+/*   Updated: 2026/04/21 15:11:56 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Replace.hpp"
 
-int main()
+int main(int ac, char **av)
 {
-	PhoneBook pb;
-	std::string cmd;
-
-	while (true)
-	{
-		std::cout << "Enter command: ";
-		if (!std::getline(std::cin, cmd))
-		{
-			std::cout << "\nGood bye" <<std::endl;
-			break ;
-		}
-    	if  (cmd == "ADD")
-			pb.addContact();
-		else if (cmd == "SEARCH")
-			pb.searchContact();
-		else if (cmd == "EXIT")
-			break;
-	}
-	return(0);
+	return (0);
 }

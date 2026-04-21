@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contacts.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 10:14:47 by antuel            #+#    #+#             */
-/*   Updated: 2026/03/23 19:10:19 by antuel           ###   ########.fr       */
+/*   Updated: 2026/04/21 14:24:04 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 
 # include <string>
 # include <iostream>
-# include <iomanip> 
-/*	The '&' means the parameter is passed by reference 
-	(no copy is made):						 !here
-		    void setContact(const std::string& firt, ...)
-*/
+# include <iomanip>
+
 class Contact
 {
 private:
@@ -44,7 +41,7 @@ public:
 
     std::string getFirstName() const;
     std::string getLastName() const;
-    std::string getNickname() const;	
+    std::string getNickname() const;
 };
 
 #endif
