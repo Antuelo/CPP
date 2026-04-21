@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 10:51:22 by antuel            #+#    #+#             */
-/*   Updated: 2026/04/21 12:25:07 by anoviedo         ###   ########.fr       */
+/*   Updated: 2026/04/21 13:26:12 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void PhoneBook::searchContact()
 		return;
 	}
 
-	std::cout << "     Index|First Name| Last Name|  Nickname\n";
+	std::cout << "\n     Index|First Name| Last Name|  Nickname\n";
 	int i = 0;
 	while (i < total_contacts)
 	{
@@ -93,15 +93,18 @@ void PhoneBook::searchContact()
 	}
 
 	std::string number_index;
-	std::cout << "\n\nGet the number index (leave empty to exit): " << std::endl;
+	std::cout << "\n\nGet the number index (leave empty to exit): ";
 	std::getline(std::cin, number_index);
 	if (number_index.empty())
+	{
+		std::cout << std::endl;
 		return;
+	}
 	else
 	{
 		if (!std::isdigit(number_index[0]))
 			{
-				std::cout << "Error: not digit number" << std::endl;
+				std::cout << "Error: not digit or index number" << std::endl;
 				return;
 			}
 	}
@@ -113,6 +116,7 @@ void PhoneBook::searchContact()
 	}
 	else
 	{
+		std::cout << std::endl;
 		contacts[conversion].displayContact();
 		std::cout << std::endl;
 	}
