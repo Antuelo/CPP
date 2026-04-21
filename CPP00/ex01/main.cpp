@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/21 14:06:23 by anoviedo          #+#    #+#             */
+/*   Updated: 2026/04/21 14:17:04 by anoviedo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 
 int main()
@@ -8,8 +20,11 @@ int main()
 	while (true)
 	{
 		std::cout << "Enter command: ";
-		std::getline(std::cin, cmd);
-
+		if (!std::getline(std::cin, cmd))
+		{
+			std::cout << "\nGood bye" <<std::endl;
+			break;
+		}
     	if  (cmd == "ADD")
 			pb.addContact();
 		else if (cmd == "SEARCH")

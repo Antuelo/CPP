@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 10:51:22 by antuel            #+#    #+#             */
-/*   Updated: 2026/04/21 13:26:12 by anoviedo         ###   ########.fr       */
+/*   Updated: 2026/04/21 13:47:28 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void PhoneBook::searchContact()
 	}
 	else
 	{
-		if (!std::isdigit(number_index[0]))
+		if (!std::isdigit(number_index[0]) || number_index.length() != 1)
 			{
 				std::cout << "Error: not digit or index number" << std::endl;
 				return;
