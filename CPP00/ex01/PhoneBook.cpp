@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
+/*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 10:51:22 by antuel            #+#    #+#             */
-/*   Updated: 2026/04/21 15:26:10 by anoviedo         ###   ########.fr       */
+/*   Updated: 2026/04/22 18:52:59 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void PhoneBook::searchContact()
 			}
 	}
 	int conversion = std::atoi(number_index.c_str());
-	if (conversion < 0 || conversion >= total_contacts)
+	if (conversion >= total_contacts)
 	{
 		std::cout << "Error: That index number does not exist" << std::endl;
 		return;
