@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 13:49:09 by antuel            #+#    #+#             */
-/*   Updated: 2026/04/22 16:56:10 by antuel           ###   ########.fr       */
+/*   Updated: 2026/04/22 19:12:41 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ void Harl::complain(std::string level)
 	for (int i = 0; i < 4; i++)
 	{
 		if (level == text[i])
+		{
 			(this->*actions[i])();
+			break;
+		}
 	}
 }
