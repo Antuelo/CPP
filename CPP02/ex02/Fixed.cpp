@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 12:18:31 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/05 18:49:22 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/05 21:53:17 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,29 +99,48 @@ bool Fixed::operator!=(const Fixed& fixed)const
 
 		// Arithmetic Operators
 		
-float Fixed::operator+(const Fixed &oper)const
+Fixed Fixed::operator+(const Fixed &oper)const
 {
-	return (this->toFloat() + oper.toFloat());	
+	Fixed result;
+	result.setRawBits(this->_raw_bits + oper._raw_bits);
+	return (result);	
 }
 
-float Fixed::operator-(const Fixed &oper)const
+Fixed Fixed::operator-(const Fixed &oper)const
 {
-	return (this->toFloat() - oper.toFloat());	
+	Fixed result;
+	result.setRawBits(this->_raw_bits - oper._raw_bits);
+	return (result);}
+
+Fixed Fixed::operator*(const Fixed &oper)const
+{
+    Fixed result;
+    long long temp = (long long)this->_raw_bits * oper._raw_bits;
+    result.setRawBits(temp / (1 << _fractional_bits));
+    return result;
 }
 
-float Fixed::operator/(const Fixed &oper)const
+Fixed Fixed::operator/(const Fixed &oper)const
 {
-	return (this->toFloat() / oper.toFloat());	
+    Fixed result;
+    long long temp = (long long)this->_raw_bits * (1 << _fractional_bits);
+    result.setRawBits(temp / oper._raw_bits);
+    return result;
 }
-
-float Fixed::operator*(const Fixed &oper)const
-{
-	return (this->toFloat() * oper.toFloat());	
-}
-
 
 		// pre-increment Operators
+Fixed Fixed::operator++()
+{
+	++this->_raw_bits;
+	return (*this);
+}
 
+Fixed Fixed::operator--()
+{
+	--this->_raw_bits;
+	return(*this);
+}
+		// Overloaded post-increment Operators
 
 
 //methods
@@ -129,14 +148,12 @@ float Fixed::operator*(const Fixed &oper)const
 int Fixed::getRawBits()const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-
 	return (this->_raw_bits);
 }
 
 void Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
-
 	this->_raw_bits = raw;	
 }
 

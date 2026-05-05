@@ -24,17 +24,17 @@ class Fixed
 		bool	operator==(const Fixed& fixed)const;
 		bool	operator!=(const Fixed& fixed)const;
 
-		float	operator+(const Fixed &oper)const;
-		float	operator-(const Fixed &oper)const;
-		float 	operator/(const Fixed &oper)const;
-		float 	operator*(const Fixed &oper)const;
+		Fixed	operator+(const Fixed &oper)const;
+		Fixed	operator-(const Fixed &oper)const;
+		Fixed 	operator/(const Fixed &oper)const;
+		Fixed 	operator*(const Fixed &oper)const;
 
 		// pre-increment Operators		
 		Fixed operator++();
-		Fixed operator++();
+		Fixed operator--();
 		// post-increment Operators
 		Fixed operator++(int);
-		Fixed operator++(int);
+		Fixed operator--(int);
 
 		~Fixed();
 		
