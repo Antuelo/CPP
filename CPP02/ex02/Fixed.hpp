@@ -15,6 +15,11 @@ class Fixed
 		Fixed(const Fixed &copy);
 		Fixed(const int num);
 		Fixed(const float real);
+//Overload min & max
+		const 	Fixed& min(const Fixed& a, const Fixed &b);
+		const	Fixed& max(const Fixec &a, const Fixed &b);
+
+
 
 		Fixed& 	operator=(const Fixed& other);
 		bool	operator>(const Fixed& fixed)const;
@@ -29,15 +34,17 @@ class Fixed
 		Fixed 	operator/(const Fixed &oper)const;
 		Fixed 	operator*(const Fixed &oper)const;
 
-		// pre-increment Operators		
+		// pre-increment Operators
 		Fixed operator++();
 		Fixed operator--();
 		// post-increment Operators
 		Fixed operator++(int);
 		Fixed operator--(int);
 
+
+
 		~Fixed();
-		
+
 		int 	getRawBits(void) const;
 		void 	setRawBits(int const raw);
 		float 	toFloat(void) const;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 12:18:31 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/05 22:37:07 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/08 13:12:09 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,37 +98,35 @@ bool Fixed::operator!=(const Fixed& fixed)const
 
 
 		// Arithmetic Operators
-		
-Fixed Fixed::operator+(const Fixed &oper)const
+
+Fixed Fixed::operator+(const Fixed &other)const
 {
 	Fixed result;
-	result.setRawBits(this->_raw_bits + oper._raw_bits);
-	return (result);	
+	result.setRawBits(this->_raw_bits + other._raw_bits);
+	return (result);
 }
 
-Fixed Fixed::operator-(const Fixed &oper)const
+Fixed Fixed::operator-(const Fixed &other)const
 {
 	Fixed result;
-	result.setRawBits(this->_raw_bits - oper._raw_bits);
-	return (result);}
-
-Fixed Fixed::operator*(const Fixed &oper)const
-{
-    Fixed result;
-    long long temp = (long long)this->_raw_bits * oper._raw_bits;
-    result.setRawBits(temp / (1 << _fractional_bits));
-    return result;
+	result.setRawBits(this->_raw_bits - other._raw_bits);
+	return (result);
 }
 
-Fixed Fixed::operator/(const Fixed &oper)const
+Fixed Fixed::operator*(const Fixed &other)const
 {
-    Fixed result;
-    long long temp = (long long)this->_raw_bits * (1 << _fractional_bits);
-    result.setRawBits(temp / oper._raw_bits);
-    return result;
+	return (Fixed(toFloat() * other.toFloat()));
+}
+
+Fixed Fixed::operator/(const Fixed &other)const
+{
+	if  (other.getRawBits() == 0)
+		return(perror("Error: division by zero"), Fixed(0));
+    return (Fixed(toFloat() / other.toFloat()));
 }
 
 		// pre-increment Operators
+
 Fixed Fixed::operator++()
 {
 	++this->_raw_bits;
@@ -140,23 +138,34 @@ Fixed Fixed::operator--()
 	--this->_raw_bits;
 	return(*this);
 }
+
 		// Overloaded post-increment Operators
 
 Fixed Fixed::operator++(int)
 {
 	Fixed temp = *this;
-	_raw_bits+1;
+	++_raw_bits;
 	return temp;
 }
 
 Fixed Fixed::operator--(int)
 {
 	Fixed temp = *this;
-	_raw_bits-1;
+	--_raw_bits;
 	return temp;
 }
 
-//methods
+		//Overload MAX & MIN
+
+const Fixed &Fixed::min(const &Fixed &a, const &Fixed &b)
+{
+	if (a < b)
+		return (a);
+	else
+		return (b);
+}
+
+		//methods
 
 int Fixed::getRawBits()const
 {
@@ -167,7 +176,7 @@ int Fixed::getRawBits()const
 void Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
-	this->_raw_bits = raw;	
+	this->_raw_bits = raw;
 }
 
 float Fixed::toFloat()const
