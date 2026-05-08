@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 11:53:32 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/08 17:35:35 by anoviedo         ###   ########.fr       */
+/*   Updated: 2026/05/08 18:21:30 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ public:
 
 	void announce() const;
 };
+
+void randomChump(std::string name);
+Zombie* newZombie(std::string name);
 
 #endif //ZOMBIE_HPP
