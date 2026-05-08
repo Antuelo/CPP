@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 11:53:32 by antuel            #+#    #+#             */
-/*   Updated: 2026/03/28 12:31:51 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/08 17:35:35 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	Zombie(std::string name);
 
 	~Zombie();
-	
+
 	void announce() const;
 };
 

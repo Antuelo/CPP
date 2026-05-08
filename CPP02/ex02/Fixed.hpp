@@ -10,12 +10,6 @@ class Fixed
 		int 					_raw_bits;
 		static  const int 		_fractional_bits = 8;
 
-//Overload min & max
-		static const Fixed		&min(const Fixed& a, const Fixed &b);
-		static const Fixed		&max(const Fixed &a, const Fixed &b);
-		static Fixed			&min(Fixed &a, Fixed &b);
-		static Fixed			&max(Fixed &a, Fixed &b);
-
 	public:
 		Fixed();
 		Fixed(const Fixed &copy);
@@ -37,12 +31,17 @@ class Fixed
 		Fixed 	operator*(const Fixed &oper)const;
 
 		// pre-increment Operators
-		Fixed operator++();
-		Fixed operator--();
+		Fixed& operator++();
+		Fixed& operator--();
 		// post-increment Operators
 		Fixed operator++(int);
 		Fixed operator--(int);
 
+		//Overload min & max
+		static const Fixed		&min(const Fixed& a, const Fixed &b);
+		static const Fixed		&max(const Fixed &a, const Fixed &b);
+		static Fixed			&min(Fixed &a, Fixed &b);
+		static Fixed			&max(Fixed &a, Fixed &b);
 
 
 		~Fixed();

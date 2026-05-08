@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 12:18:31 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/08 15:25:32 by anoviedo         ###   ########.fr       */
+/*   Updated: 2026/05/08 18:13:34 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@
 
 Fixed::Fixed () : _raw_bits (0)
 {
-	std::cout << "Default constructor called" << std::endl;
+//	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+//	std::cout << "Copy constructor called" << std::endl;
 	this->_raw_bits = copy._raw_bits;
 }
 
 Fixed::Fixed(const int num)
 {
-	std::cout << "Int constructor called" << std::endl;
+//	std::cout << "Int constructor called" << std::endl;
 	_raw_bits = num * (1 << _fractional_bits);
 }
 
 Fixed::Fixed(const float real)
 {
-	std::cout << "Float constructor called" << std::endl;
+//	std::cout << "Float constructor called" << std::endl;
 	_raw_bits = roundf(real * (1 << _fractional_bits));
 }
 
@@ -42,7 +42,7 @@ Fixed::Fixed(const float real)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+//	std::cout << "Destructor called" << std::endl;
 }
 
 
@@ -50,7 +50,7 @@ Fixed::~Fixed()
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+//	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->_raw_bits = other._raw_bits;
 
@@ -120,20 +120,18 @@ Fixed Fixed::operator*(const Fixed &other)const
 
 Fixed Fixed::operator/(const Fixed &other)const
 {
-	if  (other.getRawBits() == 0)
-		return(perror("Error: division by zero"), Fixed(0));
     return (Fixed(toFloat() / other.toFloat()));
 }
 
 		// pre-increment Operators
 
-Fixed Fixed::operator++()
+Fixed& Fixed::operator++()
 {
 	++this->_raw_bits;
 	return (*this);
 }
 
-Fixed Fixed::operator--()
+Fixed& Fixed::operator--()
 {
 	--this->_raw_bits;
 	return(*this);
@@ -189,13 +187,13 @@ Fixed &Fixed::max(Fixed &a, Fixed &b)
 
 int Fixed::getRawBits()const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+//	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_raw_bits);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+//	std::cout << "setRawBits member function called" << std::endl;
 	this->_raw_bits = raw;
 }
 
