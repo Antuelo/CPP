@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 12:18:31 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/08 13:12:09 by anoviedo         ###   ########.fr       */
+/*   Updated: 2026/05/08 15:25:32 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,12 +157,32 @@ Fixed Fixed::operator--(int)
 
 		//Overload MAX & MIN
 
-const Fixed &Fixed::min(const &Fixed &a, const &Fixed &b)
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
 {
 	if (a < b)
 		return (a);
-	else
-		return (b);
+	return (b);
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return a;
+	return b;
 }
 
 		//methods
