@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 12:18:31 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/05 21:53:17 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/05 22:37:07 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,19 @@ Fixed Fixed::operator--()
 }
 		// Overloaded post-increment Operators
 
+Fixed Fixed::operator++(int)
+{
+	Fixed temp = *this;
+	_raw_bits+1;
+	return temp;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed temp = *this;
+	_raw_bits-1;
+	return temp;
+}
 
 //methods
 
