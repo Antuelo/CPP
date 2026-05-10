@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 11:53:23 by antuel            #+#    #+#             */
-/*   Updated: 2026/04/14 17:40:00 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/10 17:35:49 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int main(void)
 {
-    std::string text = "HI THIS IS BRAIN";
-	std::string* stringPTR = &text;
-	std::string& stringREF = text;
+    std::string 	text = "HI THIS IS BRAIN";
+	std::string 	*stringPTR = &text;
+	std::string 	&stringREF = text;
 
 	std::cout << "\nAddresses are: " << std::endl;
 	std::cout << &text << std::endl;
