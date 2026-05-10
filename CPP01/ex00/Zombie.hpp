@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 11:53:32 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/10 16:53:02 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/10 17:57:56 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	Zombie(std::string name);
 
 	~Zombie();
-	
+
 	void announce() const;
 };
 
