@@ -12,7 +12,7 @@ class Replace
 		std::string		_replace;
 	
 	public:
-		Replace(std::string _filename, std::string _search, std::string _replace);
+		Replace(std::string filename, std::string search, std::string replace);
 		std::string readFile() const;
 		std::string replaceall(const std::string& content) const;
 		void writeFile(const std::string& result) const;

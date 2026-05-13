@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 00:51:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/04/18 01:22:25 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/13 11:25:14 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class Weapon
 
 	public:
 		Weapon(std::string type);
-		const std::string&	getType() const;
+		
+		const std::string	&getType() const;
 		void				setType(std::string newType);
 };
 
