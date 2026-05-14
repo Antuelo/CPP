@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:52:04 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/14 18:57:58 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/14 19:36:41 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,17 @@
 ClapTrap::ClapTrap(std::string name) 
     : _name(name), _hit_points(10), _attack_damage(0), _energy_points(10)
 {
-    std::cout << "ClapTrap to " << name << " constructed" << std::endl;
+    std::cout << "ClapTrap " << name << " constructed" << std::endl;
+}
+
+int ClapTrap::get_hitpoints()const
+{
+	return(_hit_points);
+}
+
+int ClapTrap::get_energypoints()const
+{
+	return(_energy_points);
 }
 
 void ClapTrap::takeDamage(unsigned int damage)
@@ -42,10 +52,18 @@ void ClapTrap::beRepaired(unsigned int mount)
 		std::cout << "Error: the repair must be greater than 0" << std::endl;
 		return ;
 	}
+	
 	_energy_points--;
-	std::cout << "Will be repaired: " << _hit_points << " with: " << mount <<std::endl;
+	std::cout << "Adding " << mount << " health points to current " << _hit_points << std::endl;
+	
 	_hit_points += mount;
-	std::cout << "total Health now: " << _hit_points <<std::endl;
+	if (_hit_points > 10)
+	{
+		_hit_points = 10;
+		std::cout << "The healt is full! health: " << _hit_points << std::endl;
+	}
+	else
+		std::cout << "Total health now: " << _hit_points << std::endl;
 }
 
 
@@ -53,11 +71,13 @@ void ClapTrap::attack(const std::string &target)
 {
 	if (_hit_points <= 0 || _energy_points <= 0)
 	{
-		std::cout << "Insufficient number of hit_points or energy_points for ATTACK" << std::endl;
+		if (_hit_points == 0)
+			std::cout << "ClapTrap " << _name << " is dead and cannot act!" << std::endl;
+		else
+			std::cout << "Insufficient number of energy_points for ATTACK" << std::endl;
 		return ;
 	}
 	
-	std::cout << _name << " Attack with " << target << " causing " << _attack_damage << " points of damage!" << std::endl;
+	std::cout << "ClapTrap " << _name << " attacks " << target << " causing " << _attack_damage << " points of damage!" << std::endl;
 	_energy_points--;
-	
 }

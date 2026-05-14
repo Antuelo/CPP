@@ -18,11 +18,12 @@ class ClapTrap
 
 		~ClapTrap(){std::cout << "Destruction de ClapTrap: " << _name << std::endl;};
 
-	void attack(const std::string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	void 	attack(const std::string &target);
+	void 	takeDamage(unsigned int amount);
+	void 	beRepaired(unsigned int amount);
 
-	void set_Hitpoints();
+	int		get_hitpoints()const;
+	int		get_energypoints()const;
 };
 
 #endif //CLAPTRAP_HPP
