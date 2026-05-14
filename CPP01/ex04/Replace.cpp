@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 16:28:04 by antuel            #+#    #+#             */
-/*   Updated: 2026/04/20 22:57:10 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/14 15:54:31 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,12 @@ std::string Replace::readFile() const
 
 std::string Replace::replaceall(const std::string& content) const
 {
-	std::string	result;
-	size_t		pos;
-	size_t		startpos = 0;
-	
+	std::string		result;
+	size_t			pos;
+	size_t			startpos = 0;
+
 	pos = content.find(_search, startpos);
-	/*if (pos == std::string::npos)
-		return (std::cout << "Error: nothing to change" << std::endl, "");*/
-	
+
 	while (pos != std::string::npos)
 	{
 		result += content.substr(startpos, pos - startpos);
