@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:34:38 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/14 19:31:36 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/14 19:38:55 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(void)
     
     player1.attack("ennemi");
     
-    player2.takeDamage(3);
+    player2.takeDamage(-3);
     
     player2.beRepaired(5);
     

@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:34:38 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/16 14:29:40 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/16 16:38:09 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(void)
     
     std::cout << "\n=== TEST 4: TAKE DAMAGE (inherited from ClapTrap) ===" << std::endl;
     scav.takeDamage(30);
+	scav.beRepaired(5);
     scav.takeDamage(80);  // here I kill him
     
     std::cout << "\n=== TEST 5: BE REPAIRED (inherited from ClapTrap) ===" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:52:04 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/16 14:19:41 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/16 16:36:36 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,30 @@ int ClapTrap::get_energypoints()const
 
 void ClapTrap::takeDamage(int damage)
 {
+	if (damage <= 0)
+	{
+		std::cout << "Error: The attack need be over 0 (zero)" << std::endl;
+		return ;
+	}
+	else if (_hit_points == 0)
+	{
+		std::cout << "impossible take damage, hit_points is almost 0" << std::endl;
+		return ;
+	}
+
 	_hit_points -= damage;
+
 	if (_hit_points < 0)
 	{
 		_hit_points = 0;
+		std::cout << _name << " took " << damage << " damage" <<std::endl;
 		std::cout << _name << " has no more health :( hit_points: " << _hit_points << std::endl;
 	}
 	else
+	{
+		std::cout << _name << " took " << damage << " damage" <<std::endl;
 		std::cout << _name <<" only has " << _hit_points << " health points :O" << std::endl;
+	}
 }
 
 void ClapTrap::beRepaired(int mount)
