@@ -14,13 +14,20 @@ class ClapTrap
 		
 	
 	public:
+		//const
+		ClapTrap();
+		ClapTrap(const ClapTrap &other);
 		ClapTrap(std::string name);
+		//destr
+		~ClapTrap();
 
-		~ClapTrap(){std::cout << "Destruction de ClapTrap: " << _name << std::endl;};
-
+		//oper
+		ClapTrap& operator=(const ClapTrap &other);
+	
+		//method
 	void 	attack(const std::string &target);
-	void 	takeDamage(unsigned int amount);
-	void 	beRepaired(unsigned int amount);
+	void 	takeDamage(int amount);
+	void 	beRepaired(int amount);
 
 	int		get_hitpoints()const;
 	int		get_energypoints()const;

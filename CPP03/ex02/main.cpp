@@ -6,12 +6,13 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:34:38 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/16 16:38:09 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/18 12:13:05 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 int main(void)
@@ -48,6 +49,21 @@ int main(void)
 		}
     }
     
+	std::cout << "\n=== FRAGTRAP TESTS ===" << std::endl;
+	FragTrap frag("Fraggy");
+	frag.highFivesGuys();
+	frag.attack("dummy");
+	frag.takeDamage(50);
+	frag.beRepaired(30);
+	
+	std::cout << "\n\n test constructors copy and default, and operator = \n" << std::endl;
+	//test de copy constructors
+		FragTrap frag2(frag);
+	//test default constructor
+		FragTrap frag3;
+	//test operator =
+		frag2 = frag3;
+	
     std::cout << "\n=== TEST 8: DESTRUCTION ===" << std::endl;
     return (0);
 }

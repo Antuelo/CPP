@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
+/*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 12:18:31 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/08 18:13:34 by anoviedo         ###   ########.fr       */
+/*   Updated: 2026/05/17 15:45:05 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ Fixed::~Fixed()
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-//	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->_raw_bits = other._raw_bits;
 

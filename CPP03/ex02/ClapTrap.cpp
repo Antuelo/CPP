@@ -6,18 +6,49 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:52:04 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/16 16:36:36 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/18 12:03:55 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+//CONSTRUCTORS
 ClapTrap::ClapTrap(std::string name) 
-    : _name(name), _hit_points(10),  _energy_points(10), _attack_damage(0)
+    : _name(name), _hit_points(10), _attack_damage(0), _energy_points(10)
 {
     std::cout << "ClapTrap " << name << " constructed" << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &other)
+{
+    std::cout << "ClapTrap copy constructor called" << std::endl;
+	*this = other;
+}
+
+ClapTrap::ClapTrap() : _name("no-name"), _hit_points(10), _attack_damage(0), _energy_points(10)
+{}
+
+//DESTRUCTORS
+ClapTrap::~ClapTrap()
+{
+	std::cout << "Destruction de ClapTrap: " << _name << std::endl;
+}
+
+//OPERATORS
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
+{
+	if (this != &other)
+	{
+		this->_name = other._name;
+		this->_energy_points = other._energy_points;
+		this->_attack_damage = other._attack_damage;
+		this->_hit_points = other._hit_points;
+	}
+
+	return *this;
+}
+
+//METHODS
 int ClapTrap::get_hitpoints()const
 {
 	return(_hit_points);
@@ -52,7 +83,7 @@ void ClapTrap::takeDamage(int damage)
 	else
 	{
 		std::cout << _name << " took " << damage << " damage" <<std::endl;
-		std::cout << _name <<" only has " << _hit_points << " health points :O" << std::endl;
+		std::cout << _name <<" only has " << _hit_points << " health points" << std::endl;
 	}
 }
 
@@ -60,7 +91,10 @@ void ClapTrap::beRepaired(int mount)
 {
 	if (_hit_points == 0 || _energy_points == 0)
 	{
-		std::cout << "Insufficient number of hit_points or energy_points for BE REPAIRED" << std::endl;
+		if (_hit_points == 0)
+			std::cout << "Insufficient number of hit_points for BE REPAIRED" << std::endl;
+		else
+			std::cout << "Insufficient number of energy_points for BE REPAIRED" << std::endl;
 		return ;
 	}
 	else if (mount <= 0)
