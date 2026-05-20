@@ -6,7 +6,7 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:52:04 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/20 11:03:05 by anoviedo         ###   ########.fr       */
+/*   Updated: 2026/05/20 15:51:49 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,6 @@ void ClapTrap::beRepaired(unsigned int mount)
 			std::cout << "Insufficient number of hit_points for BE REPAIRED" << std::endl;
 		else
 			std::cout << "Insufficient number of energy_points for BE REPAIRED" << std::endl;
-		return ;
-	}
-	else if (mount <= 0)
-	{
-		std::cout << "Error: the repair must be greater than 0" << std::endl;
 		return ;
 	}
 
