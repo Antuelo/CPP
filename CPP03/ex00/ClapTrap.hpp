@@ -11,8 +11,8 @@ class ClapTrap
 		int 			_hit_points;
 		int				_attack_damage;
 		int 			_energy_points;
-		
-	
+
+
 	public:
 		//const
 		ClapTrap();
@@ -23,11 +23,11 @@ class ClapTrap
 
 		//oper
 		ClapTrap& operator=(const ClapTrap &other);
-	
+
 		//method
 	void 	attack(const std::string &target);
-	void 	takeDamage(int amount);
-	void 	beRepaired(int amount);
+	void 	takeDamage(unsigned int amount);
+	void 	beRepaired(unsigned int amount);
 
 	int		get_hitpoints()const;
 	int		get_energypoints()const;
