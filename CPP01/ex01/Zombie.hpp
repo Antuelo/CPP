@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 11:53:32 by antuel            #+#    #+#             */
-/*   Updated: 2026/03/28 16:21:20 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/18 12:23:07 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ public:
 	void announce() const;
 	void setname(std::string name);
 };
+
+Zombie* zombieHorde(int N, std::string name);
 
 #endif //ZOMBIE_HPP

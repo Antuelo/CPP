@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 11:53:23 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/10 17:54:50 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/20 09:24:24 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 int main(void)
 {
     std::cout << "=== STACK ZOMBIE ===" << std::endl;
-	randomChump("Alan Den Trevous");
+		randomChump("Alan Den Trevous");
 	
     std::cout << "\n=== HEAP ZOMBIE ===" << std::endl;	
-	std::cout << "the immortal heap zombie come !" << std::endl;
-	Zombie* heapzombie = newZombie("Highlander");
-	heapzombie->announce();
+		std::cout << "the immortal heap zombie come !" << std::endl;
+		Zombie* heapzombie = newZombie("Highlander");
+		heapzombie->announce();
 
 	std::cout << "\n=== DELLETING HEAP ZOMBIE ===" << std::endl;
-	delete heapzombie;
+		delete heapzombie;
 
     std::cout << "\n=== PROGRAM END ===" << std::endl;
+	
 	return (0);
 }
