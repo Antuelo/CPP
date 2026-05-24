@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 15:57:49 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/24 19:38:23 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/24 19:48:52 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void Animal::makeSound() const
 	std::cout << "Animal Sound: asdfjaoeifhé" << std::endl;
 }
 
-Animal& Animal::operator=(const Animal &copy)
+Animal& Animal::operator=(const Animal &other)
 {
 	std::cout << "Operator \\= called" << std::endl;
 	if (this != &copy)
