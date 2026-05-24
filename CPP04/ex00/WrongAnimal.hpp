@@ -15,7 +15,7 @@ class WrongAnimal
 
 	virtual ~WrongAnimal();
 
-	WrongAnimal& operator=(const WrongAnimal &copy);
+	WrongAnimal& operator=(const WrongAnimal &other);
 
 	std::string getType()const;
 	virtual	void makeSound()const;
@@ -29,6 +29,9 @@ class WrongDog : public WrongAnimal
 		WrongDog(std::string type);
 
 		~WrongDog();
+
+		WrongDog& operator=(const WrongDog &other);
+
 		void makeSound() const;		
 		
 };
@@ -42,7 +45,7 @@ class WrongCat : public WrongAnimal
 
 		~WrongCat();
 
-		WrongCat& operator=(const WrongCat& copy);
+		WrongCat& operator=(const WrongCat &other);
 
 		void makeSound() const;
 };

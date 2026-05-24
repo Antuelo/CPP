@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 15:57:49 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/24 19:48:52 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/24 20:07:03 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void Animal::makeSound() const
 Animal& Animal::operator=(const Animal &other)
 {
 	std::cout << "Operator \\= called" << std::endl;
-	if (this != &copy)
-		_type = copy._type;
+	if (this != &other)
+		_type = other._type;
 	return *this;
 }
 

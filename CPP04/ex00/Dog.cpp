@@ -6,13 +6,13 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 16:17:52 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/24 20:05:38 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/24 20:33:27 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "animal.hpp"
 
-Dog::Dog() : Animal("Default-Dog")
+Dog::Dog() : Animal("Dog")
 {
 	std::cout << "BOUOOFFF Dog DEFAULT constructor called" << std::endl;
 }

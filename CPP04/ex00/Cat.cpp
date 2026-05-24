@@ -6,13 +6,13 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 16:14:57 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/24 20:05:48 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/24 20:33:34 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "animal.hpp"
 
-Cat::Cat() : Animal("Default-Cat")
+Cat::Cat() : Animal("Cat")
 {
 	std::cout << "MIAAUUU DEFAULT constructor called" << std::endl;
 }
