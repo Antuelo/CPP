@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/24 15:57:49 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/24 16:09:44 by antuel           ###   ########.fr       */
+/*   Created: 2026/05/24 16:14:57 by antuel            #+#    #+#             */
+/*   Updated: 2026/05/24 16:22:37 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "animal.hpp"
 
-Animal::Animal()
+Cat::Cat()
 {
-	std::cout << "DEFAULT constructor called" << std::endl;
+	std::cout << "MIAAUUU DEFAULT constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& copy)
+Cat::Cat(const Cat& copy)
 {
-	std::cout << "COPY constructor called" << std::endl;
+	std::cout << "MIAAAUU COPY constructor called" << std::endl;
 }
 
-Animal::Animal(std::string type)
+Cat::Cat(std::string type)
 {
-	std::cout << "PARAMETER constructor called" << std::endl;
+	std::cout << "MIIIAAUUU PARAMETER constructor called" << std::endl;
 }
 
-Animal::~Animal()
+Cat::~Cat()
 {
-	std::cout << "Destructor called" << std::endl;
-}
-
-
-//Methods
-
-void Animal::makeSound()
-{
-	
+	std::cout << "MIIAAAUU Destructor called" << std::endl;
 }

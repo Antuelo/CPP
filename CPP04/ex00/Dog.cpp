@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/24 15:57:49 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/24 16:09:44 by antuel           ###   ########.fr       */
+/*   Created: 2026/05/24 16:17:52 by antuel            #+#    #+#             */
+/*   Updated: 2026/05/24 16:19:33 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "animal.hpp"
 
-Animal::Animal()
+Dog::Dog()
 {
-	std::cout << "DEFAULT constructor called" << std::endl;
+	std::cout << "BOUOOFFF Dog DEFAULT constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& copy)
+Dog::Dog(const Dog& copy)
 {
-	std::cout << "COPY constructor called" << std::endl;
+	std::cout << "BOUOOFFF COPY constructor called" << std::endl;
 }
 
-Animal::Animal(std::string type)
+Dog::Dog(std::string type)
 {
-	std::cout << "PARAMETER constructor called" << std::endl;
+	std::cout << "BOUOOFF PARAMETER constructor called" << std::endl;
 }
 
-Animal::~Animal()
+Dog::~Dog()
 {
-	std::cout << "Destructor called" << std::endl;
-}
-
-
-//Methods
-
-void Animal::makeSound()
-{
-	
+	std::cout << "BOUOOOFFF Destructor called" << std::endl;
 }
