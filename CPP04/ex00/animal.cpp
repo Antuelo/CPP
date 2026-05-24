@@ -6,36 +6,59 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 15:57:49 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/24 16:09:44 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/24 19:38:23 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "animal.hpp"
 
-Animal::Animal()
+//default constructor: default animal
+Animal::Animal() : _type("Default-animal")
 {
-	std::cout << "DEFAULT constructor called" << std::endl;
+	std::cout << "Animal DEFAULT constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& copy)
+//copy constructor: type = copy de animal
+Animal::Animal(const Animal& copy) : _type(copy._type)
 {
-	std::cout << "COPY constructor called" << std::endl;
+	std::cout << "Animal COPY constructor called" << std::endl;
 }
 
-Animal::Animal(std::string type)
+//constructor with parameter: _type= parameter type
+Animal::Animal(std::string type) : _type(type)
 {
-	std::cout << "PARAMETER constructor called" << std::endl;
+	std::cout << "Animal PARAMETER constructor called" << std::endl;
 }
 
+//default destructor
 Animal::~Animal()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Animal Destructor called" << std::endl;
 }
 
 
 //Methods
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
-	
+	std::cout << "Animal Sound: asdfjaoeifhé" << std::endl;
+}
+
+Animal& Animal::operator=(const Animal &copy)
+{
+	std::cout << "Operator \\= called" << std::endl;
+	if (this != &copy)
+		_type = copy._type;
+	return *this;
+}
+
+std::string Animal::getType()const
+{
+	return _type;
+}
+
+std::ostream& operator<<(std::ostream &os, const Animal &obj)
+{
+	os << obj.getType();
+	return os;
 }

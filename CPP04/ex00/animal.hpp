@@ -15,8 +15,10 @@ class Animal
 
 	virtual ~Animal();
 
-	
-		void makeSound();
+	Animal& operator=(const Animal &copy);
+
+	std::string 		getType()const;
+	virtual	void 		makeSound()const;
 };
 
 class Dog : public Animal
@@ -27,6 +29,8 @@ class Dog : public Animal
 		Dog(std::string type);
 
 		~Dog();
+		void makeSound() const;		
+		
 };
 
 class Cat : public Animal
@@ -37,7 +41,12 @@ class Cat : public Animal
 		Cat(std::string type);
 
 		~Cat();
+
+		Cat& operator=(const Cat& copy);
+
+		void makeSound() const;
 };
 
+std::ostream& operator<<(std::ostream& os, const Animal &obj);
 
 #endif //ANIMAL_HPP
