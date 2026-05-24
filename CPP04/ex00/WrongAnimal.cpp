@@ -48,6 +48,10 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other)
 	return *this;
 }
 
+std::string WrongAnimal::getType()const
+{
+	return _type;
+}
 
 //----------------------------------------------WrongExemple-------------------------------->
 //DOG
@@ -122,4 +126,10 @@ WrongCat& WrongCat::operator=(const WrongCat &other)
 void WrongCat::makeSound()const
 {
 	std::cout << "Miauuuuuu !" << std::endl;
+}
+
+std::ostream& operator<<(std::ostream &os, WrongAnimal &obj)
+{
+	os << obj.getType();
+	return os;
 }

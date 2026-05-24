@@ -13,12 +13,13 @@ class WrongAnimal
 	WrongAnimal(std::string type);
 	WrongAnimal(const WrongAnimal& copy);
 
-	virtual ~WrongAnimal();
+	~WrongAnimal();
 
 	WrongAnimal& operator=(const WrongAnimal &other);
 
 	std::string getType()const;
-	virtual	void makeSound()const;
+
+	void makeSound()const;
 };
 
 class WrongDog : public WrongAnimal
