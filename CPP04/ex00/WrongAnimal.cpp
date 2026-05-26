@@ -38,7 +38,7 @@ WrongAnimal::~WrongAnimal()
 
 void WrongAnimal::makeSound() const
 {
-	std::cout << "WrongAnimal Sound: allalaallalalala :V" << std::endl;
+	std::cout << "allalaallalalala :V" << std::endl;
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal &other)
