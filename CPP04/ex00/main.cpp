@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 15:24:45 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/26 10:16:26 by antuel           ###   ########.fr       */
+/*   Updated: 2026/05/26 10:29:09 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,22 @@ int main()
 		std::cout << "\n-------------- Wrong animal time ----------------------\n" << std::endl;
 		const WrongAnimal 	*strange 				= new WrongAnimal();
 		const WrongAnimal	*this_is_a_wrongCat 	= new WrongCat();
+		const WrongAnimal 	*isnotadog				= new WrongDog();
 
-		std::cout << "A strange cat say: ";
+		std::cout << "\nA strange cat say: ";
 		this_is_a_wrongCat->makeSound();
+
+		std::cout << "\nThis is'n a Dog! listen the sound: ";
+		isnotadog->makeSound();		
 		
-		std::cout << "so ... a wrong animal say: ";
+		std::cout << "\nSo, finaly... a wrong-animal say: ";
 		strange->makeSound();
 
+		std::cout << std::endl;
+		
 		delete strange;
 		delete this_is_a_wrongCat;
+		delete isnotadog;
 	}
 	return (0);
 }
