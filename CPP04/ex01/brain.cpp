@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/22 15:24:45 by antuel            #+#    #+#             */
-/*   Updated: 2026/06/01 22:36:37 by antuel           ###   ########.fr       */
+/*   Created: 2026/06/01 09:50:45 by antuel            #+#    #+#             */
+/*   Updated: 2026/06/01 21:46:05 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "animal.hpp"
-#include "WrongAnimal.hpp"
 
-int main()
+Brain::Brain()
 {
-	const	Animal* j = new Dog();
-	const 	Animal* i = new Cat();
+	std::cout << "Default BRAIN constructor called" << std::endl;
+}
 
-	delete j;//should not create a leak
-	delete i;
-	
-	Animal *animals[10];
-	for(int i = 0; i < 10; i++)
+Brain::Brain(const Brain &copy)
+{
+	std::cout << "Copy Brain constructor called" << std::endl;
+
+	*this = copy;
+}
+
+
+Brain::~Brain()
+{
+	std::cout << "Default Brain Destructor called" << std::endl;
+}
+
+Brain& Brain::operator=(const Brain &other)
+{
+	if (this != &other)
 	{
-		if (i < 5)
-			animals[i] = new Dog();
-		else
-			animals[i] = new Cat();
+		for (int i=0; i < 100; i++)
+			ideas[i] = other.ideas[i];
 	}
-	for (int i = 0; i < 10; i++)
-		delete animals[i];
-	
-	return 0;
+	return *this;
 }

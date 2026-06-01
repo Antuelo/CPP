@@ -2,7 +2,7 @@
 #define ANIMAL_HPP
 
 #include <iostream>
-#include "Brain.hpp"
+#include "brain.hpp"
 
 class Animal
 {

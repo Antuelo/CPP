@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 16:17:52 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/24 20:33:27 by antuel           ###   ########.fr       */
+/*   Updated: 2026/06/01 22:27:52 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 Dog::Dog() : Animal("Dog")
 {
 	std::cout << "BOUOOFFF Dog DEFAULT constructor called" << std::endl;
+	_dog_brain = new Brain();
 }
 
 Dog::Dog(const Dog& copy) : Animal (copy)
 {
 	std::cout << "BOUOOFFF COPY constructor called" << std::endl;
+	_dog_brain = new Brain(*copy._dog_brain);
 }
 
 Dog::Dog(std::string type) : Animal(type)
@@ -30,6 +32,7 @@ Dog::Dog(std::string type) : Animal(type)
 Dog::~Dog()
 {
 	std::cout << "BOUOOOFFF Destructor called" << std::endl;
+	delete _dog_brain;
 }
 
 //------methods and operators
@@ -37,7 +40,10 @@ Dog::~Dog()
 Dog& Dog::operator=(const Dog &other)
 {
 	if (this != &other)
-		_type = other._type;
+	{
+		Animal::operator=(other);
+		*_dog_brain = *other._dog_brain;
+	}
 	return *this;
 }
 
