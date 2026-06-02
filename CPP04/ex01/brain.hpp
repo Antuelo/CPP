@@ -12,7 +12,6 @@ class Brain
 
 		Brain();
 		Brain(const Brain &copy);
-		Brain(std::string idea[100]);
 
 		~Brain();
 

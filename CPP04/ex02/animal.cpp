@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 15:57:49 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/24 20:07:03 by antuel           ###   ########.fr       */
+/*   Updated: 2026/06/02 23:28:44 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,6 @@ Animal::~Animal()
 
 
 //Methods
-
-void Animal::makeSound() const
-{
-	std::cout << "Animal Sound: asdfjaoeifhé" << std::endl;
-}
 
 Animal& Animal::operator=(const Animal &other)
 {
