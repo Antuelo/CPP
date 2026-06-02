@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 15:24:45 by antuel            #+#    #+#             */
-/*   Updated: 2026/06/01 22:39:38 by antuel           ###   ########.fr       */
+/*   Updated: 2026/06/02 15:04:06 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,19 @@ int main()
 	std::cout << std::endl;
 	for (int i = 0; i < 10; i++)
 		delete animals[i];
+	
+	std::cout << std::endl;
+	std::cout << "copy test time-----------------------\n" << std::endl;
+	
+	Dog *Perro = new Dog();
+	Dog *Pitbul = new Dog(*Perro);
+	
+	std::cout << std::endl;
+	std::cout << "DESTRUCTION .............>" << std::endl;
+	std::cout << std::endl;
+	
+	delete Perro;
+	delete Pitbul;
 	
 	return 0;
 }
