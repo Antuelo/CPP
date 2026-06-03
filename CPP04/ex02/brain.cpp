@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 09:50:45 by antuel            #+#    #+#             */
-/*   Updated: 2026/06/01 21:46:05 by antuel           ###   ########.fr       */
+/*   Updated: 2026/06/03 11:36:10 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
+#include "brain.hpp"
 
 Brain::Brain()
 {

@@ -6,14 +6,14 @@
 /*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 15:24:45 by antuel            #+#    #+#             */
-/*   Updated: 2026/06/03 10:57:18 by anoviedo         ###   ########.fr       */
+/*   Updated: 2026/06/03 11:40:52 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "animal.hpp"
 #include "WrongAnimal.hpp"
 
-
+/*commented because the Animal's class is abstract, so ... not possible to utilise*/
 int main()
 {
 
@@ -33,10 +33,10 @@ int main()
 		std::cout << "The dog say: ";
 		perro->makeSound();
 
-		std::cout << "An animal makes a strange sound: ";
+//		std::cout << "An animal makes a strange sound: ";
 //		bestiole->makeSound();
 
-		std::cout << "An other strange animal copy the strange animal: ";
+//		std::cout << "An other strange animal copy the strange animal: ";
 //		autrebestiole->makeSound();
 
 //		delete bestiole;

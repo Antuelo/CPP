@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal() : _type("Defaul-WrongAnimal")
