@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anoviedo <antuel@outlook.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 15:24:45 by antuel            #+#    #+#             */
-/*   Updated: 2026/05/26 10:29:09 by antuel           ###   ########.fr       */
+/*   Updated: 2026/06/03 11:56:25 by anoviedo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	
+
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
-	
+
 	return 0;
 }*/
 
@@ -52,7 +52,7 @@ int main()
 
 		std::cout << "An other strange animal copy the strange animal: ";
 		autrebestiole->makeSound();
-		
+
 		delete bestiole;
 		delete autrebestiole;
 		delete gato;
@@ -60,22 +60,22 @@ int main()
 	}
 	//wrong animals examples
 	{
-		std::cout << "\n-------------- Wrong animal time ----------------------\n" << std::endl;
+		std::cout << YELLOW << "\n-------------- Wrong animal time ----------------------\n" << std::endl;
 		const WrongAnimal 	*strange 				= new WrongAnimal();
 		const WrongAnimal	*this_is_a_wrongCat 	= new WrongCat();
 		const WrongAnimal 	*isnotadog				= new WrongDog();
 
-		std::cout << "\nA strange cat say: ";
+		std::cout << RED << "\nA strange cat say: ";
 		this_is_a_wrongCat->makeSound();
 
 		std::cout << "\nThis is'n a Dog! listen the sound: ";
-		isnotadog->makeSound();		
-		
+		isnotadog->makeSound();
+
 		std::cout << "\nSo, finaly... a wrong-animal say: ";
 		strange->makeSound();
 
-		std::cout << std::endl;
-		
+		std::cout << BLACK << YELLOW <<std::endl;
+
 		delete strange;
 		delete this_is_a_wrongCat;
 		delete isnotadog;

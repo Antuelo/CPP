@@ -1,6 +1,9 @@
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
+#define YELLOW "\033[33m"
+#define RED "\033[31m"
+#define BLACK "\033[0m"
 #include <iostream>
 
 class Animal
@@ -29,9 +32,9 @@ class Dog : public Animal
 		Dog(std::string type);
 
 		~Dog();
-		
+
 		Dog& operator=(const Dog &other);
-		
+
 		void makeSound() const;
 };
 
