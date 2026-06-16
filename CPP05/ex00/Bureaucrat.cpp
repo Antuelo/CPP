@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 11:26:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/06/16 10:57:04 by antuel           ###   ########.fr       */
+/*   Updated: 2026/06/16 23:34:04 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,32 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too Low !!");
+}
+
+//getters
+
+int Bureaucrat::getGrade()const
+{
+	return this->_grade;
+}
+
+std::string Bureaucrat::getName()const
+{
+	return this->_name;
+}
+
+void Bureaucrat::incrementGrade()
+{
+	if (_grade > 0)
+		_grade--;
+	else
+		throw Bureaucrat::GradeTooHighException();
+}
+
+void Bureaucrat::decrementGrade()
+{
+	if (_grade < 150)
+		_grade++;
+	else
+		throw Bureaucrat::GradeTooLowException();
 }
