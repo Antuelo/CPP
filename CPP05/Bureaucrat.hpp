@@ -43,6 +43,6 @@ class Bureaucrat
 };
 
 
-std::ostream operator<<(const std::ostream &os, const Bureaucrat &other);
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &other);
 
 #endif //BUREAUCRAT_HPP

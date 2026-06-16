@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 11:26:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/06/12 11:45:05 by antuel           ###   ########.fr       */
+/*   Updated: 2026/06/16 10:57:04 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,38 @@ Bureaucrat::Bureaucrat() :
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) :
-	_name(name),
-	_grade(grade)
+	_name(name)
 {
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else
+		_grade = grade;
+			
 	std::cout << "Parameters constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) :
-	Bureaucrat(copy)
+	_name(copy._name),
+	_grade(copy._grade)
 {
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-~Bureaucrat::Bureaucrat()
+Bureaucrat::~Bureaucrat()
 {
 	std::cout << "default destructor called" << std::endl;
+}
+
+//exceptions
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Grade is too High !!");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade is too Low !!");
 }
