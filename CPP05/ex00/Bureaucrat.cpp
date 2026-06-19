@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 11:26:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/06/16 23:34:04 by antuel           ###   ########.fr       */
+/*   Updated: 2026/06/17 23:11:22 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ std::string Bureaucrat::getName()const
 
 void Bureaucrat::incrementGrade()
 {
-	if (_grade > 0)
+	if (_grade > 1)
 		_grade--;
 	else
 		throw Bureaucrat::GradeTooHighException();
@@ -83,4 +83,11 @@ void Bureaucrat::decrementGrade()
 		_grade++;
 	else
 		throw Bureaucrat::GradeTooLowException();
+}
+
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &other)
+{
+	os << other.getName() << ", Bureaucrat grade: " << other.getGrade();
+	return os;
 }
