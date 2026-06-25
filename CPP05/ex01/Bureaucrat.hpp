@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Form.hpp"
 
 
 class Bureaucrat
@@ -40,6 +41,7 @@ class Bureaucrat
 
 		void				incrementGrade();
 		void				decrementGrade();
+		void				singForm(Form &f);
 };
 
 
