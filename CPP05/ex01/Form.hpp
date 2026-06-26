@@ -17,19 +17,22 @@ class Form
 
 		~Form();
 
-		void		getName() const;
-		void		getSignGrade() const;
-		void 		getExecGrade() const;
-		void		beSigned(const Bureaucrat &b);
+		std::string		getName() const;
+		int				getSignGrade() const;
+		int 			getExecGrade() const;
+		bool			getSignState() const;
+		void			beSigned(const Bureaucrat &b);
 
 		class GradeTooHighException : public std::exception
 		{
-			virtual const char *what() const throw();
+			public :
+				virtual const char *what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception
 		{
-			virtual const char *what() const throw();
+			public:
+				virtual const char *what() const throw();
 		};
 };
 

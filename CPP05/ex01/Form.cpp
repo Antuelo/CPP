@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 21:00:42 by antuel            #+#    #+#             */
-/*   Updated: 2026/06/23 22:18:11 by antuel           ###   ########.fr       */
+/*   Updated: 2026/06/26 22:43:33 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,44 @@ Form::Form(std::string name, int sing_grade, int exec_grade) :
 		throw Form::GradeTooHighException();
 }
 
+std::string Form::getName() const
+{
+	return _name;
+}
+
+int Form::getExecGrade() const
+{
+	return _exec_grade;
+}
+
+int Form::getSignGrade() const
+{
+	return _sing_grade;
+}
+
+bool Form::getSignState() const
+{
+	return _sign;
+}
+
+void Form::beSigned(const Bureaucrat &b)
+{
+	if (b.getGrade() <= this->getSignGrade())
+		_sign = true;
+	else
+		throw Form::GradeTooLowException();
+}
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return "Form signature grade is too High!!";
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return "Form signature grade is too low!!";
+}
+
 Form::~Form()
 {
 	std::cout << "Default destructor called" << std::endl;
@@ -48,5 +86,6 @@ Form::~Form()
 
 std::ostream &operator<<(std::ostream &os, const Form &other)
 {
-	
+	os << other.getName() << ", Sing grade: " << other.getSignGrade() << 
+	", Exec grade: " << other.getExecGrade() << " Signed: " << other.getSignState() << std::endl;
 }
