@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 21:00:42 by antuel            #+#    #+#             */
-/*   Updated: 2026/06/26 22:43:33 by antuel           ###   ########.fr       */
+/*   Updated: 2026/06/30 16:53:09 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 Form::Form() : 
 	_name("default-name"),
 	_sign(false),
-	_exec_grade(150),
-	_sing_grade(150)
+	_sing_grade(150),
+	_exec_grade(150)
 {
 	std::cout << "Default consturctor called" << std::endl;
 }
@@ -88,4 +88,5 @@ std::ostream &operator<<(std::ostream &os, const Form &other)
 {
 	os << other.getName() << ", Sing grade: " << other.getSignGrade() << 
 	", Exec grade: " << other.getExecGrade() << " Signed: " << other.getSignState() << std::endl;
+	return os;
 }
