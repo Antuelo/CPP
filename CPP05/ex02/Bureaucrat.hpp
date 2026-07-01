@@ -5,7 +5,7 @@
 #include <string>
 #include <exception>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -41,7 +41,7 @@ class Bureaucrat
 
 		void				incrementGrade();
 		void				decrementGrade();
-		void				signForm(Form &f);
+		void				signForm(AForm &f);
 };
 
 
