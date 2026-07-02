@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:18:16 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/02 15:56:55 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/02 16:06:35 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ RobotomyRequestForm::RobotomyRequestForm()
 
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy)
-: 	_target(copy._target),
-	AForm(copy)
+:	AForm(copy),
+	_target(copy._target)
 {}
 
 
@@ -56,4 +56,12 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 	}
 	else
 		throw RobotomisedFail::exception();
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+{
+	if (this != &other)
+		this->_target = other._target;
+	
+	return *this;
 }
