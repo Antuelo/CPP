@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 21:00:42 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/02 13:58:29 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/02 14:34:17 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ AForm::AForm(std::string name, int sing_grade, int exec_grade) :
 		throw AForm::GradeTooHighException();
 }
 
+AForm::~AForm()
+{
+	std::cout << "Default destructor called" << std::endl;
+}
+
+
 std::string AForm::getName() const
 {
 	return _name;
@@ -86,10 +92,11 @@ const char *AForm::GradeTooLowException::what() const throw()
 	return "AForm signature grade is too low!!";
 }
 
-AForm::~AForm()
+const char *AForm::NotSignedException::what() const throw()
 {
-	std::cout << "Default destructor called" << std::endl;
+	return "The Form isn't signed - execution not possible";
 }
+
 
 std::ostream &operator<<(std::ostream &os, const AForm &other)
 {
