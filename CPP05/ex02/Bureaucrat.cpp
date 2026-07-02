@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 11:26:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/01 15:16:42 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/02 15:20:28 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Bureaucrat::Bureaucrat() :
 	std::cout << "Default constructor called" << std::endl;
 }
 
+//parameter consturctor: (std::string name, int grade)
 Bureaucrat::Bureaucrat(std::string name, int grade) :
 	_name(name)
 {
