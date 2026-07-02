@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/12 11:26:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/01 14:32:19 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/01 15:16:42 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,24 @@ void Bureaucrat::signForm(AForm &f)
 		
 }
 
+
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &other)
 {
 	os << other.getName() << ", Bureaucrat grade: " << other.getGrade();
 	return os;
 }
+
+//ex02
+void Bureaucrat::executeForm(const AForm &form)
+	{
+		try
+		{
+			form.execute(*this);
+			std::cout<< Bureaucrat::getName() << " exectued form: " << form.getName() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		
+	}

@@ -13,6 +13,7 @@ class Form
 
 	public:
 		Form();
+		Form(const Form &copy);
 		Form(std::string name, int sing_grade, int exec_grade);
 
 		~Form();

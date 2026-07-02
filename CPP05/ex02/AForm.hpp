@@ -13,10 +13,12 @@ class AForm
 
 	public:
 		AForm();
+		AForm(const AForm &copy);
 		AForm(std::string name, int sing_grade, int exec_grade);
 
 		~AForm();
 
+		//methods
 		std::string		getName() const;
 		int				getSignGrade() const;
 		int 			getExecGrade() const;
@@ -34,6 +36,9 @@ class AForm
 			public:
 				virtual const char *what() const throw();
 		};
+
+		//ABSTRACT METHOD
+		virtual void execute(const Bureaucrat &executor) const = 0;
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &other);

@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 21:00:42 by antuel            #+#    #+#             */
-/*   Updated: 2026/06/30 16:53:09 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/02 14:00:25 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ Form::Form() :
 {
 	std::cout << "Default consturctor called" << std::endl;
 }
+
+Form::Form(const Form &copy)
+: 	_name(copy._name),
+	_sign(copy._sign),
+	_sing_grade(copy._sing_grade),
+	_exec_grade(copy._exec_grade)
+{}
 
 Form::Form(std::string name, int sing_grade, int exec_grade) :
 	_name(name),

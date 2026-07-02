@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 21:00:42 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/01 14:22:20 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/02 13:58:29 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ AForm::AForm() :
 {
 	std::cout << "Default consturctor called" << std::endl;
 }
+
+AForm::AForm(const AForm &copy)
+: 	_name(copy._name),
+	_sign(copy._sign),
+	_sing_grade(copy._sing_grade),
+	_exec_grade(copy._exec_grade)
+{}
 
 AForm::AForm(std::string name, int sing_grade, int exec_grade) :
 	_name(name),
@@ -90,3 +97,4 @@ std::ostream &operator<<(std::ostream &os, const AForm &other)
 	", Exec grade: " << other.getExecGrade() << " Signed: " << other.getSignState() << std::endl;
 	return os;
 }
+
