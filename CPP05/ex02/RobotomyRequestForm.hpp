@@ -23,7 +23,7 @@ class RobotomyRequestForm : public AForm
 
 		void 	execute(const Bureaucrat &executor) const;
 
-	RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &other);
+	RobotomyRequestForm	&operator=(const RobotomyRequestForm &other);
 };
 
 #endif

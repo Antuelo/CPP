@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:18:16 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/02 16:06:35 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/06 15:11:39 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,19 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 	if (!this->getSignState())
 		throw AForm::NotSignedException();
 	if (executor.getGrade() > this->getExecGrade())
-		throw AForm::NotSignedException();
+		throw AForm::GradeTooLowException();
 
 	int random = rand() % 2;
 
 	if (random == 0)
 	{
-		std::cout 	<< "dddrrrrrrrrzzzzzzzzzzzzz beeeep bep bep* drilling noises *" 
+		std::cout 	<< "dddrrrrrrrrzzzzzzzzzzzzz beeeep bep bep * drilling noises *" 
 					<< this->getName()
 					<< " has been robotomized successfully!"
 					<< std::endl;
 	}
 	else
-		throw RobotomisedFail::exception();
+		throw RobotomisedFail();
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)

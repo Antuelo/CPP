@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:18:19 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/02 15:22:23 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/06 14:35:40 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy)
-: _target(copy._target)
+: 	AForm(copy),
+	_target(copy._target)
 {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
@@ -69,4 +70,12 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 	
 	file.close();
 	std::cout << std::endl;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
+{
+	if (this != &other)
+		this->_target = other._target;
+
+	return *this;	
 }
