@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 16:01:48 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/10 18:30:58 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/10 18:55:17 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ AForm	*Intern::makeForm(const std::string form_name, const std::string form_targ
 			return (new PresidentialPardonForm(form_target));
 			
 		default:
-			std::cout << "The form mentioned does not exist" << std::endl;
+			std::cout << "The form mentioned: \" "<< form_name <<" \" does not exist" << std::endl;
 			return NULL;		
 	}
 }

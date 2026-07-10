@@ -16,7 +16,7 @@ class AForm
 		AForm(const AForm &copy);
 		AForm(std::string name, int sing_grade, int exec_grade);
 
-		~AForm();
+		virtual ~AForm();
 
 		//methods
 		std::string		getName() const;

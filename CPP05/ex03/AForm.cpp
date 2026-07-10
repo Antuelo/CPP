@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 21:00:42 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/02 15:48:53 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/10 18:51:56 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ AForm::AForm() :
 	_sign(false),
 	_sing_grade(150),
 	_exec_grade(150)
-{
-	std::cout << "Default consturctor called" << std::endl;
-}
+{}
 
 AForm::AForm(const AForm &copy)
 : 	_name(copy._name),
@@ -36,7 +34,6 @@ AForm::AForm(std::string name, int sing_grade, int exec_grade) :
 	_sing_grade(sing_grade),
 	_exec_grade(exec_grade)
 {
-	std::cout << "Parameters constructor called" << std::endl;
 	if (sing_grade > 150)
 		throw AForm::GradeTooLowException();
 	else if (sing_grade < 1)
@@ -49,9 +46,7 @@ AForm::AForm(std::string name, int sing_grade, int exec_grade) :
 }
 
 AForm::~AForm()
-{
-	std::cout << "Default destructor called" << std::endl;
-}
+{}
 
 
 std::string AForm::getName() const
