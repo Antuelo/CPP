@@ -1,8 +1,5 @@
-#ifndef INTERN_HPP
-#define INTERN_HPP
-
-#ifndef INTERN_HPP
-# define INTERN_HPP
+#ifndef		INTERN_HPP
+# define	INTERN_HPP
 
 # include <iostream>
 # include <string>
@@ -24,4 +21,4 @@ class Intern
 		AForm	*makeForm(const std::string form_name, const std::string form_target) ;
 };
 
-#endif //INTERN_HPP
+#endif
