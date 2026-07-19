@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 21:00:42 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/02 15:48:53 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/16 16:47:30 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ bool AForm::getSignState() const
 
 void AForm::beSigned(const Bureaucrat &b)
 {
+	if (_sign)
+		return ;
 	if (b.getGrade() <= this->getSignGrade())
 		_sign = true;
 	else
