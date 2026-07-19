@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:18:16 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/06 15:11:39 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/19 17:03:06 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 	{
 		std::cout 	<< "dddrrrrrrrrzzzzzzzzzzzzz beeeep bep bep * drilling noises *" 
 					<< this->getName()
-					<< " has been robotomized successfully!"
+					<< " has been robotomized successfully! with target: " << this->_target
 					<< std::endl;
 	}
 	else
