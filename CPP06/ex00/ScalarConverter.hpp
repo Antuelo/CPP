@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+void	convertion(std::string param, std::string type);
+
 class ScalarConverter
 {
 	private:
