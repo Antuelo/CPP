@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:24:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/23 16:43:35 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/24 15:39:23 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #include <cctype>
 #include <algorithm>
 #include <iomanip>
+#include <limits>
+#include <limits.h>
+#include <cerrno>
+#include <cstdlib>
 
 ScalarConverter::ScalarConverter()
 {}
@@ -59,43 +63,88 @@ void handleSpecialCases(const std::string& param)
     }
 }
 
-void printConversions(char c, int i, float f, double d)
+void printConversions(char c, int i, float f, double d, char e, char charError)
 {
-		if (isprint(c))
-			std::cout << "char: " << "'" << c << "'" << std::endl;
-		else
-			std::cout << "char: " << "Non displayable" << std::endl;
+	if (charError == 'c')
+    	std::cout << "char: impossible" << std::endl;
+	else if (isprint(c))
+    	std::cout << "char: '" << c << "'" << std::endl;
+	else
+    	std::cout << "char: Non displayable" << std::endl;
 
-
+	if (e != 'i')
 		std::cout << "int: " << i << std::endl;
-
+	else
+		std::cout << "int: impossible" << std::endl;
+		
+	if (e != 'f')	
 		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+	else
+		std::cout << "float: impossible" << std::endl;
 
+	if (e != 'd')	
 		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
+	else
+		std::cout << "double: impossible" << std::endl;
 }
 
 void	convertion(std::string param, std::string type)
 {
+	char 	e = '\0';//e= error \0= default
+	char 	charE = '\0';
+
 	if  (type == "char")
 	{
 		char c = param[1];
-        printConversions(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c));		
+        printConversions(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c), e, charE);		
 	}
 	else if (type == "int")
 	{
-		int i = atoi(param.c_str());
-		printConversions(static_cast<char>(i), i, static_cast<float>(i), static_cast<double>(i));
+		char *end;
+		errno = 0;
+		long int i = strtol(param.c_str(), &end, 10);
+		
+		if (errno == ERANGE || *end != '\0' || i < INT_MIN || i > INT_MAX)
+			e = 'i';//i = int
+		if (i < std::numeric_limits<char>::min() || 
+			i > std::numeric_limits<char>::max())
+				charE = 'c';
+		
+		printConversions(static_cast<char>(i), static_cast<int>(i), static_cast<float>(i), static_cast<double>(i), e, charE);
 	}
 	else if (type == "float")
 	{
-		float f = atof(param.c_str());
-		printConversions(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f));
+		char *end;
+		errno = 0;
+		float f = strtof(param.c_str(), &end);
+		
+		if (errno == ERANGE || *end != '\0')
+		{
+			if (*end != 'f')
+				e = 'f';
+		}
+		
+		if (f < std::numeric_limits<char>::min() || 
+			f > std::numeric_limits<char>::max())
+				charE = 'c';
+		
+		printConversions(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f), e, charE);
 	}	
-	else //double action
+	else //double
 	{
-		double d = atof(param.c_str());
-		printConversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d);
-		return ; //float action	
+		char *end;
+		errno = 0;
+		double d = strtod(param.c_str(), &end);
+		
+		if (errno == ERANGE || *end != '\0')
+			e = 'd';
+
+		if (d < std::numeric_limits<char>::min() || 
+			d > std::numeric_limits<char>::max())
+				charE = 'c';
+		
+		printConversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d, e, charE);
+		return ; //float 	
 	}	
 }
 
@@ -105,7 +154,7 @@ void ScalarConverter::convert(std::string param)
 	bool	onlyNumbers = true;
 	int 	i = 0;
 	
-	if (param[0] == '-')
+	if (param[0] == '-' || param[0] == '+')
 		i++;
 	
 	while(i < length + 1)
@@ -132,6 +181,7 @@ void ScalarConverter::convert(std::string param)
 		
 	else if (onlyNumbers)													//int
 		return convertion(param, "int");
+		
 	else if (param == "nan" || param == "nanf" || param == "-inf" || param == "+inf" ||
         param == "-inff" || param == "+inff")
     {
@@ -142,7 +192,7 @@ void ScalarConverter::convert(std::string param)
 		std::cout << "Your entry isn't literal in its most common form" << std::endl;
 }
 
-ScalarConverter ScalarConverter::operator=(const ScalarConverter &other)
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter &other)
 {
 	(void)other;	
 	return *this;
