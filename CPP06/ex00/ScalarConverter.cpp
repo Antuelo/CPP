@@ -6,19 +6,18 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:24:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/24 15:39:23 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/24 15:50:55 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <cctype>
-#include <algorithm>
 #include <iomanip>
 #include <limits>
 #include <limits.h>
 #include <cerrno>
-#include <cstdlib>
-
+#include <cstdlib> //strtol, strtof, strtod
+ 
 ScalarConverter::ScalarConverter()
 {}
 
@@ -65,6 +64,7 @@ void handleSpecialCases(const std::string& param)
 
 void printConversions(char c, int i, float f, double d, char e, char charError)
 {
+	//CHAR
 	if (charError == 'c')
     	std::cout << "char: impossible" << std::endl;
 	else if (isprint(c))
@@ -72,16 +72,19 @@ void printConversions(char c, int i, float f, double d, char e, char charError)
 	else
     	std::cout << "char: Non displayable" << std::endl;
 
+	//INT
 	if (e != 'i')
 		std::cout << "int: " << i << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-		
+	
+	//FLOAT
 	if (e != 'f')	
 		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	else
 		std::cout << "float: impossible" << std::endl;
 
+	//DOUBLE
 	if (e != 'd')	
 		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 	else
@@ -93,11 +96,13 @@ void	convertion(std::string param, std::string type)
 	char 	e = '\0';//e= error \0= default
 	char 	charE = '\0';
 
+	//CHAR
 	if  (type == "char")
 	{
 		char c = param[1];
         printConversions(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c), e, charE);		
 	}
+	//INT
 	else if (type == "int")
 	{
 		char *end;
@@ -112,6 +117,7 @@ void	convertion(std::string param, std::string type)
 		
 		printConversions(static_cast<char>(i), static_cast<int>(i), static_cast<float>(i), static_cast<double>(i), e, charE);
 	}
+	//FLOAT
 	else if (type == "float")
 	{
 		char *end;
@@ -129,8 +135,9 @@ void	convertion(std::string param, std::string type)
 				charE = 'c';
 		
 		printConversions(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f), e, charE);
-	}	
-	else //double
+	}
+	//DOUBLE
+	else
 	{
 		char *end;
 		errno = 0;
@@ -144,7 +151,7 @@ void	convertion(std::string param, std::string type)
 				charE = 'c';
 		
 		printConversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d, e, charE);
-		return ; //float 	
+		return ; 	
 	}	
 }
 
