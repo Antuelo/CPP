@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:24:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/26 18:41:16 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/26 23:05:46 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,10 +114,10 @@ void	convertion(std::string param, std::string type)
 		double d = strtod(param.c_str(), &end);
 		
 		if (d < INT_MIN || d > INT_MAX)
-			e = 'i';
 		{
+			e = 'i';
 			if (errno == ERANGE || *end != '\0')
-			e = 'd';
+				e = 'd';
 		}
 		
 		if (d < std::numeric_limits<char>::min() || 
@@ -198,7 +198,7 @@ void ScalarConverter::convert(std::string param)
 		if (param[i] == '.')
 		{
 			points++;
-			    if (points > 1 || (i < length && !isdigit(param[i+1]) && param[i+1] != 'f'))
+			if (points > 1 || (i < length && !isdigit(param[i+1]) && param[i+1] != 'f'))
 			{
 				onlyNumbers = false;
 				break;
