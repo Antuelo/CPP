@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:24:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/26 16:16:15 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/26 17:38:51 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,20 +79,20 @@ void printConversions(char c, int i, float f, double d, char e, char charError)
 		std::cout << "int: impossible" << std::endl;
 	
 	//FLOAT
-	if (e != 'f')	
+	if (e != 'f' && e != 'd')	
 		std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	else
 		std::cout << "float: impossible" << std::endl;
 
 	//DOUBLE
-	if (e != 'd')	
+	if (e != 'd' && e != 'f')	
 		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 	else
 		std::cout << "double: impossible" << std::endl;
 }
 
 void	convertion(std::string param, std::string type)
-{	
+{
 	char 	e = '\0';//e= error \0= default
 	char 	charE = '\0';
 
@@ -133,7 +133,11 @@ void	convertion(std::string param, std::string type)
 		if (f < std::numeric_limits<char>::min() || 
 			f > std::numeric_limits<char>::max())
 				charE = 'c';
-		
+		if (e != 'f')
+		{
+			if (f < INT_MIN || f > INT_MAX)
+				e = 'i';
+		}
 		printConversions(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f), e, charE);
 	}
 	//DOUBLE
@@ -149,6 +153,12 @@ void	convertion(std::string param, std::string type)
 		if (d < std::numeric_limits<char>::min() || 
 			d > std::numeric_limits<char>::max())
 				charE = 'c';
+		
+		if (e != 'd')
+		{
+			if (d < INT_MIN || d > INT_MAX)
+				e = 'i';
+		}
 		
 		printConversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d, e, charE);
 		return ; 	
@@ -179,7 +189,7 @@ void ScalarConverter::convert(std::string param)
 		if (param[i] == '.')
 		{
 			points++;
-			if (points > 1 || !isdigit(param[i+1]))
+			if (points > 1 || (i < length && !isdigit(param[i+1])))
 			{
 				onlyNumbers = false;
 				break;
@@ -204,7 +214,7 @@ void ScalarConverter::convert(std::string param)
 	else if (param.length() == 3 && param[0] == '\'' && param[2] == '\'')					//char
 		return convertion(param, "char");
 		
-	else if (param[length] == 'f' && points == 1 && onlyNumbers == true)					//float
+	else if (param[length] == 'f' && (points == 1 || points == 0)&& onlyNumbers == true)	//float
 		return convertion(param, "float");
 		
 	else if (points == 1 && onlyNumbers)													//double
