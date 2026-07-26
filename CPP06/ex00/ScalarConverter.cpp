@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:24:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/26 23:05:46 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/27 00:59:00 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void handleSpecialCases(const std::string& param)
 
 void printConversions(char c, int i, float f, double d, char e, char charError)
 {
-//	std::cout << "Error type: "<< e << std::endl;
+	std::cout << "Error type: "<< e << std::endl;
 	
 	//CHAR
 	if (charError == 'c')
@@ -87,7 +87,7 @@ void printConversions(char c, int i, float f, double d, char e, char charError)
 		std::cout << "float: impossible" << std::endl;
 
 	//DOUBLE
-	if (e != 'd' && e != 'f')	
+	if (e != 'd')	
 		std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 	else
 		std::cout << "double: impossible" << std::endl;
@@ -106,25 +106,29 @@ void	convertion(std::string param, std::string type)
 		char c = param[1];
         printConversions(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c), e, charE);		
 	}
-	//INT
-	else if (type == "int")
+	//INT & DOUBLE
+	else if (type == "int" || type == "double")
 	{
 		char *end;
 		errno = 0;
+
+		float f = strtof(param.c_str(), NULL);
+		if (f < INT_MIN || f > INT_MAX)
+			e = 'i';
+		if (errno == ERANGE || *end != '\0')
+			e = 'f';		
+		
+		errno = 0;
 		double d = strtod(param.c_str(), &end);
 		
-		if (d < INT_MIN || d > INT_MAX)
-		{
-			e = 'i';
-			if (errno == ERANGE || *end != '\0')
-				e = 'd';
-		}
+		if (errno == ERANGE || *end != '\0')
+			e = 'd';
 		
 		if (d < std::numeric_limits<char>::min() || 
 			d > std::numeric_limits<char>::max())
 				charE = 'c';
 		
-		printConversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d, e, charE);
+		printConversions(static_cast<char>(d), static_cast<int>(d), f, d, e, charE);
 		return ;
 	}
 	//FLOAT
@@ -133,45 +137,26 @@ void	convertion(std::string param, std::string type)
 		char *end;
 		errno = 0;
 		float f = strtof(param.c_str(), &end);
-		
-		
+
 		if (f < INT_MIN || f > INT_MAX)
 		{
 			e = 'i';
-			if (errno == ERANGE || *end != '\0')
+			if (errno == ERANGE && *end != '\0')
 			{
-				if (*end != 'f')
 					e = 'f';
 			}
 		}
+		errno = 0;
+    	double d = strtod(param.c_str(), NULL);
+		if (errno == ERANGE)
+			e = 'd'; 
 		
 		if (f < std::numeric_limits<char>::min() || 
 			f > std::numeric_limits<char>::max())
 				charE = 'c';
 
-		printConversions(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f), e, charE);
+		printConversions(static_cast<char>(f), static_cast<int>(f), f, d, e, charE);
 	}
-	//DOUBLE
-	else
-	{
-		char *end;
-		errno = 0;
-		double d = strtod(param.c_str(), &end);
-		
-		if (d < INT_MIN || d > INT_MAX)
-			e = 'i';
-		{
-			if (errno == ERANGE || *end != '\0')
-			e = 'd';
-		}
-		
-		if (d < std::numeric_limits<char>::min() || 
-			d > std::numeric_limits<char>::max())
-				charE = 'c';
-		
-		printConversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d, e, charE);
-		return ; 	
-	}	
 }
 
 void ScalarConverter::convert(std::string param)
