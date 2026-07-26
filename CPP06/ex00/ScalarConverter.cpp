@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:24:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/26 17:38:51 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/26 18:41:16 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void handleSpecialCases(const std::string& param)
 
 void printConversions(char c, int i, float f, double d, char e, char charError)
 {
+//	std::cout << "Error type: "<< e << std::endl;
+	
 	//CHAR
 	if (charError == 'c')
     	std::cout << "char: impossible" << std::endl;
@@ -73,7 +75,7 @@ void printConversions(char c, int i, float f, double d, char e, char charError)
     	std::cout << "char: Non displayable" << std::endl;
 
 	//INT
-	if (e != 'i')
+	if (e != 'i' && e != 'f' && e != 'd')
 		std::cout << "int: " << i << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
@@ -93,6 +95,8 @@ void printConversions(char c, int i, float f, double d, char e, char charError)
 
 void	convertion(std::string param, std::string type)
 {
+//	std::cout << type << std::endl;
+	
 	char 	e = '\0';//e= error \0= default
 	char 	charE = '\0';
 
@@ -107,15 +111,21 @@ void	convertion(std::string param, std::string type)
 	{
 		char *end;
 		errno = 0;
-		long int i = strtol(param.c_str(), &end, 10);
+		double d = strtod(param.c_str(), &end);
 		
-		if (errno == ERANGE || *end != '\0' || i < INT_MIN || i > INT_MAX)
-			e = 'i';//i = int
-		if (i < std::numeric_limits<char>::min() || 
-			i > std::numeric_limits<char>::max())
+		if (d < INT_MIN || d > INT_MAX)
+			e = 'i';
+		{
+			if (errno == ERANGE || *end != '\0')
+			e = 'd';
+		}
+		
+		if (d < std::numeric_limits<char>::min() || 
+			d > std::numeric_limits<char>::max())
 				charE = 'c';
 		
-		printConversions(static_cast<char>(i), static_cast<int>(i), static_cast<float>(i), static_cast<double>(i), e, charE);
+		printConversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d, e, charE);
+		return ;
 	}
 	//FLOAT
 	else if (type == "float")
@@ -124,20 +134,21 @@ void	convertion(std::string param, std::string type)
 		errno = 0;
 		float f = strtof(param.c_str(), &end);
 		
-		if (errno == ERANGE || *end != '\0')
+		
+		if (f < INT_MIN || f > INT_MAX)
 		{
-			if (*end != 'f')
-				e = 'f';
+			e = 'i';
+			if (errno == ERANGE || *end != '\0')
+			{
+				if (*end != 'f')
+					e = 'f';
+			}
 		}
 		
 		if (f < std::numeric_limits<char>::min() || 
 			f > std::numeric_limits<char>::max())
 				charE = 'c';
-		if (e != 'f')
-		{
-			if (f < INT_MIN || f > INT_MAX)
-				e = 'i';
-		}
+
 		printConversions(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f), e, charE);
 	}
 	//DOUBLE
@@ -147,18 +158,16 @@ void	convertion(std::string param, std::string type)
 		errno = 0;
 		double d = strtod(param.c_str(), &end);
 		
-		if (errno == ERANGE || *end != '\0')
+		if (d < INT_MIN || d > INT_MAX)
+			e = 'i';
+		{
+			if (errno == ERANGE || *end != '\0')
 			e = 'd';
-
+		}
+		
 		if (d < std::numeric_limits<char>::min() || 
 			d > std::numeric_limits<char>::max())
 				charE = 'c';
-		
-		if (e != 'd')
-		{
-			if (d < INT_MIN || d > INT_MAX)
-				e = 'i';
-		}
 		
 		printConversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d, e, charE);
 		return ; 	
@@ -189,7 +198,7 @@ void ScalarConverter::convert(std::string param)
 		if (param[i] == '.')
 		{
 			points++;
-			if (points > 1 || (i < length && !isdigit(param[i+1])))
+			    if (points > 1 || (i < length && !isdigit(param[i+1]) && param[i+1] != 'f'))
 			{
 				onlyNumbers = false;
 				break;
