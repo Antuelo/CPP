@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:24:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/24 15:50:55 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/26 16:16:15 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void handleSpecialCases(const std::string& param)
     }
 
     // Para +inf y +inff
-    if (param == "+inf" || param == "+inff")
+    if (param == "+inf" || param == "+inff" || param == "inf" || param == "inff")
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
@@ -92,7 +92,7 @@ void printConversions(char c, int i, float f, double d, char e, char charError)
 }
 
 void	convertion(std::string param, std::string type)
-{
+{	
 	char 	e = '\0';//e= error \0= default
 	char 	charE = '\0';
 
@@ -157,46 +157,71 @@ void	convertion(std::string param, std::string type)
 
 void ScalarConverter::convert(std::string param)
 {
-	int 	length = param.length() - 1;
-	bool	onlyNumbers = true;
-	int 	i = 0;
+	int 			length = param.length() - 1;
+	bool			onlyNumbers = false;
+	int				points = 0;
+	int 			i = 0;
 	
 	if (param[0] == '-' || param[0] == '+')
 		i++;
 	
-	while(i < length + 1)
+
+	while (i <= length)
 	{
-		if (param[i] < '0' || param[i] > '9')
+		if (isdigit(param[i]) || param[i] == '.')
+			onlyNumbers = true;
+		else
 		{
 			onlyNumbers = false;
 			break;
 		}
+			
+		if (param[i] == '.')
+		{
+			points++;
+			if (points > 1 || !isdigit(param[i+1]))
+			{
+				onlyNumbers = false;
+				break;
+			}
+		}
+		
 		i++;
+		
+		if (param[i] == 'f' && i == length)
+		{
+			onlyNumbers = true;
+			break;
+		}
 	}
 	
-	
 	if (param == "")
+	{
+		std::cout << "empty entry" << std::endl;
 		return ;
-	else if (param.length() == 3 && param[0] == '\'' && param[2] == '\'')	//char
+	}
+	
+	else if (param.length() == 3 && param[0] == '\'' && param[2] == '\'')					//char
 		return convertion(param, "char");
 		
-	else if (param[length] == 'f' && param.find('.') != std::string::npos)	//float
+	else if (param[length] == 'f' && points == 1 && onlyNumbers == true)					//float
 		return convertion(param, "float");
 		
-	else if (param.find('.') != std::string::npos)							//double
+	else if (points == 1 && onlyNumbers)													//double
 		return convertion(param, "double");
 		
-	else if (onlyNumbers)													//int
+	else if (onlyNumbers && points == 0)													//int
 		return convertion(param, "int");
 		
 	else if (param == "nan" || param == "nanf" || param == "-inf" || param == "+inf" ||
-        param == "-inff" || param == "+inff")
+        param == "-inff" || param == "+inff" || param == "inf" || param == "inff" )
     {
         handleSpecialCases(param);
         return;
     }
 	else
-		std::cout << "Your entry isn't literal in its most common form" << std::endl;
+		std::cout 	<< "Your entry isn't literal in its most common form!\nex char: \"\'a\'\"\n"
+					<< "int: 34 or \"5\" ... etc" << std::endl;
 }
 
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter &other)

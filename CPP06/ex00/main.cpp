@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:04:42 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/23 17:30:28 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/26 15:30:34 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ int main(int ac, char **av)
 		return 1;
 	}
 	
+	
 	std::string input = av[1];
-
+		
 	ScalarConverter::convert(input);
+	
 	std::cout << std::endl;
 
     return 0;
