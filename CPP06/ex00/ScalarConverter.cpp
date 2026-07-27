@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:24:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/27 00:59:00 by antuel           ###   ########.fr       */
+/*   Updated: 2026/07/27 23:06:09 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void handleSpecialCases(const std::string& param)
 
 void printConversions(char c, int i, float f, double d, char e, char charError)
 {
-	std::cout << "Error type: "<< e << std::endl;
+	//std::cout << "Error type: "<< e << std::endl;
 	
 	//CHAR
 	if (charError == 'c')
