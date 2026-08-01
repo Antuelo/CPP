@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/19 18:04:51 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/01 12:14:11 by antuel           ###   ########.fr       */
+/*   Created: 2026/07/29 11:22:46 by antuel            #+#    #+#             */
+/*   Updated: 2026/08/01 12:21:35 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main() 
+#include "Serializer.hpp"
+
+Serializer::Serializer()
+{}
+
+Serializer::Serializer(const Serializer &copy)
 {
-    // 1. Crear objeto Data
-    // 2. Serializar (obtener número)
-    // 3. Deserializar (recuperar puntero)
-    // 4. Comparar punteros
-    // 5. Mostrar resultados
+	if (&copy)
+		*this = copy;
+}
+
+Serializer::~Serializer()
+{}
+
+Serializer &Serializer::operator=(const Serializer &other)
+{
+	(void)other;
+	return (*this);
+}
+
+uintptr_t Serializer::serialize (Data* ptr)
+{
+    return reinterpret_cast<uintptr_t>(ptr);
 }
