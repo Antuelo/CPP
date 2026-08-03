@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:04:51 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/01 13:49:04 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/01 16:11:23 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ int main()
 
 
 
+
+
+
 /*
 //IA SOLUTION
 
 #include "Serializer.hpp"
-#include <iostream>
 
 int main()
 {
