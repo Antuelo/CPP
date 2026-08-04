@@ -25,6 +25,7 @@ void iter(T *array, size_t lenght, void (*fonction)(const T&))
 	}
 }
 
-
+template <typename T>
+void 	print(const T& p){std::cout << p << std::endl;}
 
 #endif //ITER_HPP

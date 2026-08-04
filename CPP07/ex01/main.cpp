@@ -6,15 +6,12 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 11:37:35 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/04 15:43:30 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/04 15:49:24 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 #include <string>
-
-template <typename T>
-void 	print(const T& p){std::cout << p << std::endl;}
 
 void 	increment(int& x){x++;}
 
@@ -35,29 +32,29 @@ void	printNumChar(char& c)
 
 int main()
 {
-	int intArray[] = { 1, -4, 123, 560.5, 8798765};
+	int intArray[] = { 1, -4, 123, 560, 8798765};
 	std::cout << "Int Test:" << std::endl;	
 	iter(intArray, 5, print);
 
-	std::cout << "Increment: ";
+	std::cout << "\nIncrement:\n";
 	iter(intArray, 5, increment);
 	iter(intArray, 5, print);
 
-	std::cout << "Decrement: ";
+	std::cout << "\nDecrement:\n";
 	iter(intArray, 5, decrement);
 	iter(intArray, 5, print);
 
-	std::cout << "One More Zero";
+	std::cout << "\nOne More Zero\n";
 	iter(intArray, 5, OneMoreZero);
 	iter(intArray, 5, print);
 	std::cout << std::endl;
 	
 	std::cout << "-------------------------------\n" << std::endl;
 	
-	char charArray[] = {'A', 'h', '5', '@', '£'};
-	std::cout << "Char Test:\nThe list is: " << std::endl;
+	char charArray[] = {'A', 'h', '5', '@', '+'};
+	std::cout << "Char Test:\nThe list is:" << std::endl;
 	iter(charArray, 5, print);
-	std::cout << "Now printing in int if its possible: " << std::endl;
+	std::cout << "\nNow printing in int if its possible: " << std::endl;
 	iter(charArray, 5, printNumChar);
 	
 	return 0;
