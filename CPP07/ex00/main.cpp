@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 10:25:08 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/04 11:24:03 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/04 11:25:38 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int main( void )
 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	
-	return 0
+	return 0;
 }
