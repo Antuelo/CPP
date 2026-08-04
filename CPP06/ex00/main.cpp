@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:04:42 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/26 15:30:34 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/03 16:08:22 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int main(int ac, char **av)
 							<< std::endl;
 		return 1;
 	}
-	
 	
 	std::string input = av[1];
 		

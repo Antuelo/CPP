@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:04:51 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/01 16:11:23 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/03 16:06:26 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,45 +44,3 @@ int main()
 	return 0;
 }
 
-
-
-
-
-
-
-
-
-/*
-//IA SOLUTION
-
-#include "Serializer.hpp"
-
-int main()
-{
-    Data original;
-    original.id = 42;
-    original.name = "Hello World!";
-    
-    std::cout << "Original object:" << std::endl;
-    std::cout << "   ID: " << original.id << std::endl;
-    std::cout << "   Name: " << original.name << std::endl;
-    std::cout << "   Address: " << &original << std::endl << std::endl;
-    
-    uintptr_t raw = Serializer::serialize(&original);
-    std::cout << "Serialized to number: " << raw << std::endl << std::endl;
-    
-    Data* deserialized = Serializer::deserialize(raw);
-    std::cout << "Deserialized:" << std::endl;
-    std::cout << "   Address: " << deserialized << std::endl << std::endl;
-    
-    if (&original == deserialized) {
-        std::cout << "SUCCESS! Pointers are equal" << std::endl;
-        std::cout << "   ID: " << deserialized->id << std::endl;
-        std::cout << "   Name: " << deserialized->name << std::endl;
-    } else {
-        std::cout << "ERROR: Pointers are NOT equal" << std::endl;
-    }
-    
-    return 0;
-}
-}*/

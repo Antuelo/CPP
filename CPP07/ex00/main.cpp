@@ -5,28 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/03 11:10:32 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/03 11:40:39 by antuel           ###   ########.fr       */
+/*   Created: 2026/08/04 10:25:08 by antuel            #+#    #+#             */
+/*   Updated: 2026/08/04 11:24:03 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "IRT.hpp"
+#include "whatever.hpp"
 
-int main()
-{
-	std::srand(std::time(NULL));
-
-	for(int i = 0; i < 10; i++)
-	{
-		Base* Test = generate();
-		std::cout << "Ref:     ";
-		identify(Test);
-		std::cout << "Pointer: ";
-		identify(*Test);
-		
-		delete Test;
-		
-		std::cout << "----------------------------" << std::endl;
-	}
-	return 0;
+int main( void )
+{	
+	int a = 2;
+	int b = 3;
+	
+	::swap( a, b );
+	
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+	
+	::swap(c, d);
+	
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	
+	return 0
 }

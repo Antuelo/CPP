@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 16:32:34 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/03 11:23:11 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/03 11:38:22 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ Base::~Base(){}
 
 //take a base object and make a objet A, B or C
 Base* generate()
-{
-	std::srand(std::time(NULL));
-	
-	int 		num = std::rand() % 3 + 1;
+{	
+	int		num = std::rand() % 3 + 1;
 
 	if (num == 1)
 		return new A();
