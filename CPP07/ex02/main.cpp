@@ -6,12 +6,13 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 10:19:41 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/05 16:36:22 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/05 18:57:59 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Array.hpp"
+#include <ctime>
+#include <stdlib.h>
 
 #define MAX_VAL 750
 
