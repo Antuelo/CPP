@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 10:19:41 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/05 15:40:59 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/05 16:36:22 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,7 @@
 
 #define MAX_VAL 750
 
-int main()
-{
-	int* a = new int();
-	return 0;
-}
-
-/*int main(int, char**)
+int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
@@ -69,4 +63,4 @@ int main()
     }
     delete [] mirror;//
     return 0;
-}*/
+}

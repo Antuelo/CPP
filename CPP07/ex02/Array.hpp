@@ -16,24 +16,15 @@ class Array
 		Array(unsigned int n)		: _array(new T[n]()), _size(n)	{}
 		Array(const Array& Copy)	: _array(NULL), _size(0)		{*this = Copy;}
 
-		~Array();
+		~Array()	{delete[] _array;}
 
-			Array& 	operator=(const Array& other)
-			{
-				if (this != &other)
-					delete[] _array;
+		Array& 	operator=(const Array& other);
+		T&		operator[](unsigned int index);
+const 	T&		operator[](unsigned int index) const;
 
-				if (other.size > 0)
-				{
-					
-				}
-			}
-
-			T&		operator[](unsigned int index);
-	const	T&		operator[](unsigned int index) const;
-
-		size_t	size() const;
+		size_t	size() const	{return _size;}
 };
 
+#include "Array.tpp"
 
-#endif //ARRAY_HPP
+#endif
