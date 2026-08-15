@@ -4,12 +4,13 @@
 #include <iostream>
 #include <algorithm>
 #include <exception>
-#include <vector>
 
 class NotFound : public std::exception
 {	
 	public: virtual const char* what() const throw()
-	{return ("Value not found in the container");}
+	{
+		return ("Value not found in the container");
+	}
 };
 
 template<typename T>
