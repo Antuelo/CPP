@@ -6,7 +6,23 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 00:30:33 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/08 00:30:34 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/15 17:15:52 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Span.hpp"
+
+int main()
+{
+	Span sp = Span(5);
+	
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	return 0;
+}
