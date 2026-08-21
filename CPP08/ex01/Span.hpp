@@ -1,9 +1,11 @@
 #ifndef SPAN_CPP
 #define SPAN_CPP
 
+#include <algorithm>
 #include <iostream>
 #include <exception>
 #include <iterator>
+#include <vector>
 
 class Span
 {
@@ -41,6 +43,10 @@ class Span
 		void			addNumber(unsigned int num);
 		unsigned int	shortestSpan();
 		unsigned int	longestSpan();
+		void			print_sorted_vec() const;
+
+		std::vector<unsigned int>::iterator begin()	{return _vec.begin();};
+		std::vector<unsigned int>::iterator end()	{return _vec.end();};
 		
 		template <typename iter>
 		void			addRange(iter begin, iter end)
