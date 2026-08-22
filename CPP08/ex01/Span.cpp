@@ -6,16 +6,11 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 16:52:06 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/21 14:15:45 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/21 18:47:10 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-
-#include <vector>
-#include <list>
-#include <deque>
-#include <climits>
 
 #define DEFAULT 700
 
@@ -87,7 +82,7 @@ unsigned int Span::shortestSpan()
 	for(it = copy_vec.begin(); it != copy_vec.end(); it++)
 	{
 		if (it + 1 != copy_vec.end())
-			dif = (*it + 1) - *it;
+			dif = *(it + 1) - *it;
 			
 		if (dif < MIN)
 			MIN = dif;
@@ -96,13 +91,30 @@ unsigned int Span::shortestSpan()
 	return MIN;
 }
 
+void Span::print_vec() const
+{
+	std::vector<unsigned int>		copy_vec = _vec;
+	
+	std::cout << "The vector is: ";
+	for(unsigned int i = 0; i < copy_vec.size(); i++)
+	{
+		std::cout << copy_vec[i];
+
+		if (copy_vec.size() - 1 != i)
+			std::cout << "-";
+	}
+	
+	std::cout << std::endl;
+}
+
+
 void Span::print_sorted_vec() const
 {
 	std::vector<unsigned int>		copy_vec = _vec;
 
 	std::sort(copy_vec.begin(), copy_vec.end());
 	
-	std::cout << "The sorted vec is: ";
+	std::cout << "The sorted vector is: ";
 	for(unsigned int i = 0; i < copy_vec.size(); i++)
 	{
 		std::cout << copy_vec[i];

@@ -6,6 +6,10 @@
 #include <exception>
 #include <iterator>
 #include <vector>
+#include <list>
+#include <deque>
+#include <climits>
+
 
 class Span
 {
@@ -43,6 +47,7 @@ class Span
 		void			addNumber(unsigned int num);
 		unsigned int	shortestSpan();
 		unsigned int	longestSpan();
+		void			print_vec() const;
 		void			print_sorted_vec() const;
 
 		std::vector<unsigned int>::iterator begin()	{return _vec.begin();};
@@ -51,7 +56,7 @@ class Span
 		template <typename iter>
 		void			addRange(iter begin, iter end)
 		{
-			if (end <= begin)
+			if (end == begin)
 				throw invalidNumbers();
 
 			unsigned int dist 				= std::distance(begin,end);
