@@ -14,8 +14,8 @@
 class Span
 {
 	private:
-		std::vector<unsigned int> 	_vec;
-		unsigned int				_max_size;
+		std::vector<int> 	_vec;
+		int				_max_size;
 
 	public:
 		Span(unsigned int N);
@@ -41,17 +41,17 @@ class Span
 		class invalidNumbers : public std::exception
 		{
 			public:
-				virtual const char* what() const throw() {return "The numbers isn't valid, retry again";}
+				virtual const char* what() const throw() {return "The space number isn't valid";}
 		};
 
-		void			addNumber(unsigned int num);
-		unsigned int	shortestSpan();
-		unsigned int	longestSpan();
+		void			addNumber(int num);
+		int	shortestSpan();
+		int	longestSpan();
 		void			print_vec() const;
 		void			print_sorted_vec() const;
 
-		std::vector<unsigned int>::iterator begin()	{return _vec.begin();};
-		std::vector<unsigned int>::iterator end()	{return _vec.end();};
+		std::vector<int>::iterator begin()	{return _vec.begin();};
+		std::vector<int>::iterator end()	{return _vec.end();};
 		
 		template <typename iter>
 		void			addRange(iter begin, iter end)
@@ -59,8 +59,8 @@ class Span
 			if (end == begin)
 				throw invalidNumbers();
 
-			unsigned int dist 				= std::distance(begin,end);
-			unsigned int available_space 	= _max_size - _vec.size();
+			std::size_t		dist 				= std::distance(begin,end);
+			std::size_t		available_space 	= _max_size - _vec.size();
 
 			if (dist > available_space)
 				throw NotMoreSpace();

@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 16:52:06 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/21 18:47:10 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/24 09:24:37 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,43 +42,43 @@ Span &Span::operator=(const Span& copy)
 	return *this;
 }
 
-void Span::addNumber(unsigned int num)
+void Span::addNumber(int num)
 {
-	if (_vec.size() < _max_size)
+	if (_vec.size() < static_cast<std::size_t>(_max_size))
 		_vec.push_back(num);
 	else
 		throw NotMoreSpace();
 }
 
 
-unsigned int Span::longestSpan()
+int Span::longestSpan()
 {
 	if (this->_vec.size() < 2)
 		throw unsifficentNumbers();
 		
-	std::vector<unsigned int>::iterator max_it = std::max_element(_vec.begin(), _vec.end());
-	std::vector<unsigned int>::iterator min_it = std::min_element(_vec.begin(), _vec.end());
+	std::vector<int>::iterator max_it = std::max_element(_vec.begin(), _vec.end());
+	std::vector<int>::iterator min_it = std::min_element(_vec.begin(), _vec.end());
 	
-	unsigned int max = *max_it;
-	unsigned int min = *min_it;
+	int max = *max_it;
+	int min = *min_it;
 	
 	return max - min;
 }
 
-unsigned int Span::shortestSpan()
+int Span::shortestSpan()
 {
 	if (_vec.size() < 2)
 		throw unsifficentNumbers();
 
 	//copy vec + ranger 
-	std::vector<unsigned int> copy_vec = _vec;
+	std::vector<int> copy_vec = _vec;
 	std::sort(copy_vec.begin(),copy_vec.end());
 
 	//une chiffre grand pour comparer (le dernier = le plus grand de la liste)
-	std::vector<unsigned int>::iterator it = copy_vec.end();
-	unsigned int MIN = UINT_MAX;
+	std::vector<int>::iterator it = copy_vec.end();
+	int MIN = INT_MAX;
 
-	unsigned int dif = 0;
+	int dif = 0;
 	for(it = copy_vec.begin(); it != copy_vec.end(); it++)
 	{
 		if (it + 1 != copy_vec.end())
@@ -93,14 +93,14 @@ unsigned int Span::shortestSpan()
 
 void Span::print_vec() const
 {
-	std::vector<unsigned int>		copy_vec = _vec;
+	std::vector<int>		copy_vec = _vec;
 	
 	std::cout << "The vector is: ";
-	for(unsigned int i = 0; i < copy_vec.size(); i++)
+	for(std::size_t i = 0; i < copy_vec.size(); i++)
 	{
 		std::cout << copy_vec[i];
 
-		if (copy_vec.size() - 1 != i)
+		if (i != copy_vec.size() - 1)
 			std::cout << "-";
 	}
 	
@@ -110,16 +110,16 @@ void Span::print_vec() const
 
 void Span::print_sorted_vec() const
 {
-	std::vector<unsigned int>		copy_vec = _vec;
+	std::vector<int>		copy_vec = _vec;
 
 	std::sort(copy_vec.begin(), copy_vec.end());
 	
 	std::cout << "The sorted vector is: ";
-	for(unsigned int i = 0; i < copy_vec.size(); i++)
+	for(std::size_t i = 0; i < copy_vec.size(); i++)
 	{
 		std::cout << copy_vec[i];
 
-		if (copy_vec.size() - 1 != i)
+		if (i != copy_vec.size() - 1)
 			std::cout << " - ";
 	}
 	
