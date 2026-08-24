@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:24:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/07/27 23:06:09 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/24 10:13:03 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ void ScalarConverter::convert(std::string param)
 	if (param[0] == '-' || param[0] == '+')
 		i++;
 	
-
+	//control si c'est une chiffre, s'il y a un "." et fini par "f"
 	while (i <= length)
 	{
 		if (isdigit(param[i]) || param[i] == '.')
@@ -199,22 +199,23 @@ void ScalarConverter::convert(std::string param)
 		}
 	}
 	
+	//que ne soit pas vide
 	if (param == "")
 	{
 		std::cout << "empty entry" << std::endl;
 		return ;
 	}
 	
-	else if (param.length() == 3 && param[0] == '\'' && param[2] == '\'')					//char
+	else if (param.length() == 3 && param[0] == '\'' && param[2] == '\'')
 		return convertion(param, "char");
 		
-	else if (param[length] == 'f' && (points == 1 || points == 0)&& onlyNumbers == true)	//float
+	else if (param[length] == 'f' && (points == 1 || points == 0)&& onlyNumbers == true)
 		return convertion(param, "float");
 		
-	else if (points == 1 && onlyNumbers)													//double
+	else if (points == 1 && onlyNumbers)
 		return convertion(param, "double");
 		
-	else if (onlyNumbers && points == 0)													//int
+	else if (onlyNumbers && points == 0)
 		return convertion(param, "int");
 		
 	else if (param == "nan" || param == "nanf" || param == "-inf" || param == "+inf" ||

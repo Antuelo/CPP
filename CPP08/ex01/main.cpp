@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 00:30:33 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/24 09:12:27 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/24 21:36:33 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <stack>
 
 int main()
 {
@@ -84,25 +85,6 @@ int main()
 		Span sp(10000);
 		sp.addRange(dq.begin(), dq.end());
 
-		std::cout << "Shortest: " << sp.shortestSpan() << std::endl;
-		std::cout << "Longest:  " << sp.longestSpan() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}	
-	
-	// TEST 4: Array C-style 
-	std::cout << "\nTEST WITH C ARRAY" << std::endl;
-	try
-	{
-		int arr[10000];
-		for (int i = 0; i < 10000; i++)
-			arr[i] = rand() % 1000000000 + 1;
-	
-		Span sp(10000);
-		sp.addRange(arr, arr + 10000);
-	
 		std::cout << "Shortest: " << sp.shortestSpan() << std::endl;
 		std::cout << "Longest:  " << sp.longestSpan() << std::endl;
 	}
