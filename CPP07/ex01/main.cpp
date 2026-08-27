@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 11:37:35 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/05 12:02:01 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/27 08:42:49 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void 	print(const T& p){std::cout << p << std::endl;}
 
 void 	increment(int& x)
 {
-	if (x <= INT_MAX)
+	if (x < INT_MAX)
 		x++;
 	else
 		std::cout << "incrementation impossible" << std::endl;
@@ -27,7 +27,7 @@ void 	increment(int& x)
 
 void 	decrement(int& x)
 {
-	if (x >= INT_MIN)
+	if (x > INT_MIN)
 		x--;
 	else
 		std::cout << "decrementation impossible" << std::endl;

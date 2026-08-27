@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 10:25:08 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/04 11:25:38 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/27 08:39:02 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ int main( void )
 	int a = 2;
 	int b = 3;
 	
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	
+	std::cout << "we do swap" << std::endl;
 	::swap( a, b );
 	
 	std::cout << "a = " << a << ", b = " << b << std::endl;

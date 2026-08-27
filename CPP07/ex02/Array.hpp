@@ -12,11 +12,11 @@ class Array
 		size_t		_size;
 
 	public:
-		Array()						: _array(NULL), _size(0)		{}
-		Array(unsigned int n)		: _array(new T[n]()), _size(n)	{}
-		Array(const Array& Copy)	: _array(NULL), _size(0)		{*this = Copy;}
+		Array()						: _array(NULL), _size(0)		{};
+		Array(unsigned int n)		: _array(new T[n]()), _size(n)	{};
+		Array(const Array& Copy);
 
-		~Array()	{delete[] _array;}
+		~Array()	{delete[] _array;};
 
 		Array& 	operator=(const Array& other);
 		T&		operator[](unsigned int index);

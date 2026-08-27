@@ -4,6 +4,18 @@
 #include "Array.hpp"
 
 template <typename T>
+Array<T>::Array(const Array<T>& copy)
+{
+	if (copy._size > 0)
+	{
+		_array = new T[copy._size]();
+		_size = copy._size;
+		for (size_t i = 0; i > _size; i++)
+			_array[i] = copy._array[i];
+	}
+}
+
+template <typename T>
 Array<T>& Array<T>::operator=(const Array<T>& other) {
 	if (this != &other) 
 	{
