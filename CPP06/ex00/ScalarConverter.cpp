@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/19 18:24:12 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/24 10:13:03 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/25 08:46:52 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,9 @@ void printConversions(char c, int i, float f, double d, char e, char charError)
 	else
 		std::cout << "double: impossible" << std::endl;
 }
-
+//if error is i = int, f=float, d=double, c=char
 void	convertion(std::string param, std::string type)
-{
-//	std::cout << type << std::endl;
-	
+{	
 	char 	e = '\0';//e= error \0= default
 	char 	charE = '\0';
 
@@ -202,7 +200,7 @@ void ScalarConverter::convert(std::string param)
 	//que ne soit pas vide
 	if (param == "")
 	{
-		std::cout << "empty entry" << std::endl;
+		std::cout << "Error: empty entry";
 		return ;
 	}
 	
