@@ -44,11 +44,12 @@ class Span
 				virtual const char* what() const throw() {return "The space number isn't valid";}
 		};
 
-		void			addNumber(int num);
-		int	shortestSpan();
-		int	longestSpan();
-		void			print_vec() const;
-		void			print_sorted_vec() const;
+		int		shortestSpan();
+		int		longestSpan();
+		void	addNumber(int num);
+		
+		void	print_vec() 		const;
+		void	print_sorted_vec() 	const;
 
 		std::vector<int>::iterator begin()	{return _vec.begin();};
 		std::vector<int>::iterator end()	{return _vec.end();};

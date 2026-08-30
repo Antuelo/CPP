@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 11:01:28 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/15 16:22:25 by antuel           ###   ########.fr       */
+/*   Updated: 2026/08/30 14:45:57 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main()
 	try
 	{
 		std::cout << "VECTOR" << std::endl;
+		
 		std::vector<int> 				vec;
 		std::vector<int>::iterator		it = vec.begin();
 	
