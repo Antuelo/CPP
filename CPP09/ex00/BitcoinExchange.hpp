@@ -17,6 +17,7 @@ class BitcoinExchange
 		bool		validationDate(const std::string &date)				const; //pour valider la date
 		bool		Value_valid(float value)							const; //pour valider entre 0 et 1000
 		float		lookingfor_exchangerate(const std::string &date)	const; //la date exacte o celui d avant
+		std::string trim_spaces(const std::string &str) 				const; //eliminer les espaces au debut et a la fin
 		
 	public:
 		BitcoinExchange();

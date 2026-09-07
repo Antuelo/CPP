@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 15:44:27 by antuel            #+#    #+#             */
-/*   Updated: 2026/09/04 18:34:56 by antuel           ###   ########.fr       */
+/*   Updated: 2026/09/07 09:54:04 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,21 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
 	return *this;
 }
 
+//----------------------------------------------------------------------LES METHODS
+
+std::string BitcoinExchange::trim_spaces(const std::string &str) const
+{
+	size_t		start;
+	size_t		end;
+
+	start = str.find_first_not_of(" \t");
+	if (start == std::string::npos)			//il y avait que des spaces ou rien du tout
+		return "";
+
+	end = str.find_last_not_of(" \t");
+	
+	return(str.substr(start, end - start + 1));
+}
 
 void BitcoinExchange::load_database()
 {
@@ -145,6 +160,9 @@ void BitcoinExchange::processLine(const std::string &line) const
 	std::string date = line.substr(0, pipe);
 	std::string valueStr = line.substr(pipe + 3);
 
+	date 		= trim_spaces(date);
+	valueStr 	= trim_spaces(valueStr); 
+	
 	if (!validationDate(date))
 	{
 		std::cout << "Error: invalid date: "<< date << std::endl;
@@ -162,9 +180,9 @@ void BitcoinExchange::processLine(const std::string &line) const
 	if (!Value_valid(value))
 	{
 		if (value < 0)
-			std::cout << "Error: not a positive number" << std::endl;
+			std::cout << "Error: not a positive number." << std::endl;
 		else
-			std::cout << "Error: too large number" << std::endl;
+			std::cout << "Error: too large a number" << std::endl;
 		return;
 	}
 	
