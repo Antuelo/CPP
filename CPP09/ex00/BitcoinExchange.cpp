@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/30 15:44:27 by antuel            #+#    #+#             */
-/*   Updated: 2026/09/07 09:54:04 by antuel           ###   ########.fr       */
+/*   Updated: 2026/09/07 13:55:05 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,11 +125,6 @@ bool	BitcoinExchange::validationDate(const std::string &date) const
 	return true;	
 }
 
-bool	BitcoinExchange::Value_valid(float value) const
-{
-	return (value >= 0 && value <= 1000);
-}
-
 
 float BitcoinExchange::lookingfor_exchangerate(const std::string &date) const
 {
@@ -177,7 +172,7 @@ void BitcoinExchange::processLine(const std::string &line) const
 		return;
 	}
 	
-	if (!Value_valid(value))
+	if (value < 0 || value > 1000) 									//control de limites de value
 	{
 		if (value < 0)
 			std::cout << "Error: not a positive number." << std::endl;
