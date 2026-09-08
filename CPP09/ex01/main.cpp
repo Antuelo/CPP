@@ -5,32 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/30 15:39:51 by antuel            #+#    #+#             */
-/*   Updated: 2026/09/07 15:01:33 by antuel           ###   ########.fr       */
+/*   Created: 2026/09/07 15:18:33 by antuel            #+#    #+#             */
+/*   Updated: 2026/09/08 13:48:44 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
-int	main(int ac, char** av)
+int main (int ac, char **av)
 {
 	if (ac != 2)
-		return (perror("Error: could not open file."), 1);
+		return (std::cerr << "Error: need one argument" << std::endl, 1);
 
-	std::ifstream file(av[1]);
-	if (!file.is_open())
-		return (perror("Error: could not open file"), 1);
+	RPN 			rpn;
+	std::string 	str = av[1];
 
-	BitcoinExchange 	exchange;
-	std::string 		line;
+	try
+	{
+		rpn.evaluate(str);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
-	std::getline(file, line);
-	
-	while(std::getline(file, line))
-		exchange.processLine(line);
-
-		
-	file.close();
-
 	return 0;
 }
