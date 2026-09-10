@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/15 16:52:06 by antuel            #+#    #+#             */
-/*   Updated: 2026/08/24 09:24:37 by antuel           ###   ########.fr       */
+/*   Updated: 2026/09/10 11:13:17 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,12 @@ int Span::shortestSpan()
 	std::sort(copy_vec.begin(),copy_vec.end());
 
 	//une chiffre grand pour comparer (le dernier = le plus grand de la liste)
-	std::vector<int>::iterator it = copy_vec.end();
+	std::vector<int>::iterator it = copy_vec.begin();
+	
 	int MIN = INT_MAX;
-
 	int dif = 0;
-	for(it = copy_vec.begin(); it != copy_vec.end(); it++)
+
+	for(it; it != copy_vec.end(); it++)
 	{
 		if (it + 1 != copy_vec.end())
 			dif = *(it + 1) - *it;
