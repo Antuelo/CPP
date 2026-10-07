@@ -6,7 +6,7 @@
 /*   By: antuel <antuel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 13:17:43 by antuel            #+#    #+#             */
-/*   Updated: 2026/10/01 13:11:35 by antuel           ###   ########.fr       */
+/*   Updated: 2026/10/07 21:48:41 by antuel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,11 @@ bool	PmergeMe::parseInput(int ac, char **av)
 		{
 			if (std::isdigit(static_cast<unsigned char>(str[j]))) //hago cast para las letras con tilde que pueden ser negativas = undefined behavior
 				continue;
-			std::cerr << "Error: invalid character, only numbers are accepted" << std::endl;
+			
+			if (str[j] == '-')
+				std::cerr << "Error: Negative or null numbers are not allowed." << std::endl;
+			else
+				std::cerr << "Error: invalid character, only numbers are accepted" << std::endl;
 			return false;
 		}
 		
@@ -159,7 +163,7 @@ void PmergeMe::_insertionSortVector(std::vector<int> &vec, int left, int right)
 	}
 }
 
-
+//doing vector and range inside pair
 void PmergeMe::_makepairVector(std::vector<int> &vec, int left, int right, std::vector<std::pair<int, int> > &pairs, int &straggler)
 {
 	int i = left;
@@ -225,7 +229,7 @@ void	PmergeMe::_insertWithJacobsthalVector(std::vector<std::pair<int,int> > &pai
 	while (jacobsthal.back() < (int)pairs.size())
 	{
 		int n = jacobsthal.size();
-		jacobsthal.push_back(jacobsthal[n-1] + 2*jacobsthal[n-2]);	//formule: J(n-1) + 2*J(n-2) ... alors jacobsthal[n-1] c'est J(n-1), jacobsthal[n-2] c'est J(n-2)
+		jacobsthal.push_back(jacobsthal[n-1] + 2*jacobsthal[n-2]);	//formule: J(n) = J(n-1) + 2*J(n-2) ... alors jacobsthal[n-1] c'est J(n-1), jacobsthal[n-2] c'est J(n-2)
 	}    // Si pairs.size() = 12, jacobsthal queda [1, 3, 5, 11, 21].
 	
 	std::vector<bool> inserted(pairs.size(), false);
